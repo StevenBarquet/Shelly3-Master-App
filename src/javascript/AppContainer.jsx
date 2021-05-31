@@ -2,19 +2,17 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 // ---Pages Master
-import HomePageMaster from 'Pages/Master/HomePageMaster';
-import ProductsInfoPage from 'Pages/Master/ProductsInfoPage';
-import AdminProductsPage from 'Pages/Master/AdminProductsPage';
-import AddProductsPage from 'Pages/Master/AddProductsPage';
-import AdminPublicHome from 'Pages/Master/AdminPublicHomePage';
-import ToHomeMaster from 'Pages/Master/ToHomeMasterPage';
-import MasterLogin from 'Pages/Master/MasterLoginPage';
-import MasterLogout from 'Pages/Master/MasterLogoutPage';
-import StoreCart from 'Pages/Master/StoreCartPage';
-import AdminOrders from 'Pages/Master/AdminOrdersPage';
-import EditOrders from 'Pages/Master/EditOrdersPage';
-// ---Pages Client
-import HomePage from 'Pages/Client/HomePage';
+import HomePageMaster from 'Pages/HomePageMaster';
+import ProductsInfoPage from 'Pages/ProductsInfoPage';
+import AdminProductsPage from 'Pages/AdminProductsPage';
+import AddProductsPage from 'Pages/AddProductsPage';
+import AdminPublicHome from 'Pages/AdminPublicHomePage';
+import ToHomeMaster from 'Pages/ToHomeMasterPage';
+import MasterLogin from 'Pages/MasterLoginPage';
+import MasterLogout from 'Pages/MasterLogoutPage';
+import StoreCart from 'Pages/StoreCartPage';
+import AdminOrders from 'Pages/AdminOrdersPage';
+import EditOrders from 'Pages/EditOrdersPage';
 // ---Pages Others
 import Error404Page from 'Pages/Error404Page';
 // ---Components
@@ -26,7 +24,6 @@ function AppContainer() {
     <BrowserRouter>
       <NavbarCont />
       <Switch>
-        {/* --------- Master routes --------- */}
         {/* Products */}
         <Route exact path="/master" component={ToHomeMaster} />
         <Route exact path="/master/tienda" component={HomePageMaster} />
@@ -58,7 +55,6 @@ function AppContainer() {
         <Route exact path="/master/login" component={MasterLogin} />
         <Route exact path="/master/salir" component={MasterLogout} />
         {/* --------- Client routes --------- */}
-        <Route exact path="/" component={HomePage} />
         <Route exact path="*" component={Error404Page} />
       </Switch>
       <Footer />

@@ -5,7 +5,7 @@ import { Form, Row, Col, Input, Select, Switch } from 'antd';
 import ButtonMlg from 'CommonComps/ButtonMlg';
 import mapOptions from 'CommonComps/mapOptions';
 // ---Components
-// import AuthValidate from 'Comp/Master/AuthValidate';
+// import AuthValidate from 'Comp/AuthValidate';
 // ---Others
 import { joiFormValidate, messagesSchema } from './SimpleControlledFormSchema';
 

@@ -4,7 +4,7 @@ import React from 'react';
 // ---ComonComponents
 // import ButtonMlg from 'CommonComps/ButtonMlg';
 // ---Components
-// import AuthValidate from 'Comp/Master/AuthValidate';
+// import AuthValidate from 'Comp/AuthValidate';
 // ------------------------------------------ COMPONENT-----------------------------------------
 function SimpleComp() {
   return (

@@ -5,7 +5,8 @@ import React, { useReducer } from 'react';
 // import ButtonMlg from 'CommonComps/ButtonMlg';
 // ---Components
 // import AuthValidate from 'Comp/AuthValidate';
-
+// ---Containers
+import StoreMenuCont from 'Cont/StoreMenuCont';
 // ---AUX COMPONENTS
 
 // ------------------------------------------ REDUCER -----------------------------------------
@@ -31,13 +32,13 @@ function reducer(state, action) {
   }
 }
 // ------------------------------------------ COMPONENT-----------------------------------------
-function SimpleComp() {
+function EditOrders() {
   const [state, dispatch] = useReducer(reducer, initialState);
   return (
-    <React.Fragment>
+    <StoreMenuCont>
       <span>Ejemplo Simple</span>
-    </React.Fragment>
+    </StoreMenuCont>
   );
 }
 
-export default SimpleComp;
+export default EditOrders;

@@ -4,7 +4,7 @@ import { Select } from 'antd';
 // ---ComonComponents
 // import ButtonMlg from 'CommonComps/ButtonMlg';
 // ---Components
-// import AuthValidate from 'Comp/Master/AuthValidate';
+// import AuthValidate from 'Comp/AuthValidate';
 // ------------------------------------------ COMPONENT-----------------------------------------
 const { Option } = Select;
 
