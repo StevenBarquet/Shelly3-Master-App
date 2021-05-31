@@ -1,0 +1,52 @@
+@font-face {
+  font-family: 'Questrial';
+  src: url('./fonts/Questrial/Questrial-Regular.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  background-color: @backgroundFallBack;
+  background-image: @backgroundImage;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family: 'Questrial';
+  margin: 0px;
+  padding: 0px;
+}
+p{
+  color: @colorSecundaryText;
+  font-size: 22px;
+  text-align: center;
+  span{
+    color: @colorPrimaryText;
+    font-size: 26px;
+  }
+}
+.center-block{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.col-vertical-align{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.text-green{
+  color: @simpleColorGreen;
+}
+.text-yellow{
+  color: @simpleColorYellow
+}
+.error-mid-mssg{
+  color: @colorError;
+  font-size: 18px;
+}
+.modal-title{
+  color: #6e0a0a;
+}
+.modal-message{
+  font-size: 18px;
+}

@@ -1,0 +1,208 @@
+@import '~antd/dist/antd.css';
+
+
+//--carousel
+.ant-carousel .slick-slide {
+  text-align: center;
+  overflow: hidden;
+  width: 100%;
+}
+//--steps
+.ant-steps-item-finish .ant-steps-item-icon > .ant-steps-icon{
+  color: @colorPrimaryText;
+}
+.ant-steps-item-finish > .ant-steps-item-container > .ant-steps-item-content > .ant-steps-item-title{
+  color: @colorPrimaryText;
+  font-weight: bold;
+}
+.ant-steps-item-finish > .ant-steps-item-container > .ant-steps-item-content > .ant-steps-item-description{
+  color: @colorSecundaryText;
+}
+.ant-steps-item-finish > .ant-steps-item-container > .ant-steps-item-content > .ant-steps-item-title::after{
+  background-color: @colorSecundaryText;
+}
+.ant-steps-item-finish > .ant-steps-item-container > .ant-steps-item-tail::after {
+  background-color: @colorPrimaryText;
+}
+.ant-steps-item-finish .ant-steps-item-icon{
+  background-color: transparent;
+  border-color: @colorThree;
+}
+.ant-steps-item-process .ant-steps-item-icon {
+  background: transparent;
+}
+.ant-steps-item-process .ant-steps-item-icon {
+  background-color: transparent;
+  border-color: @colorPrimaryLigth;
+}
+.ant-steps-item-wait .ant-steps-item-icon {
+  background-color: transparent;
+  border-color: @colorPrimaryText;
+}
+.ant-steps-item-wait .ant-steps-item-icon > .ant-steps-icon {
+  color: @colorPrimaryText;
+}
+.ant-steps-item-process > .ant-steps-item-container > .ant-steps-item-content > .ant-steps-item-title {
+  color: @colorPrimaryLigth;
+  font-weight: bold;
+}
+.ant-steps-item-process > .ant-steps-item-container > .ant-steps-item-content > .ant-steps-item-description {
+  color: @colorPrimaryText;
+}
+.ant-steps-item-wait > .ant-steps-item-container > .ant-steps-item-content > .ant-steps-item-title {
+  color: @colorSecundaryTextLigth;
+  font-weight: bold;
+}
+.ant-steps-item-wait > .ant-steps-item-container > .ant-steps-item-content > .ant-steps-item-description {
+  color: @colorSecundaryTextLigth;
+}
+.ant-steps-item-subtitle {
+  color: @colorSecundaryTextLigth;
+}
+//--tabs
+.ant-tabs{
+  color: @colorPrimaryText;
+}
+.ant-tabs-nav .ant-tabs-tab-active{
+  color: @colorPurpleWh;
+  font-size: 18px;
+}
+.ant-tabs-nav .ant-tabs-tab:hover{
+  color: @colorPurpleWhLigth;
+}
+.ant-tabs-ink-bar{
+  background-color: @colorPurpleWh;
+}
+.ant-table{
+  background-color: @colorPrimaryText;
+}
+.ant-table-thead{
+  background-color: @colorPurpleWh;
+}
+.ant-card-head-title{
+  white-space: normal;
+}
+//---badge
+.ant-badge-count{
+  background: @colorThree;
+  border: 0.7px solid  white;
+}
+.ant-scroll-number-only > p.ant-scroll-number-only-unit {
+  color: @colorDark;
+}
+//---progress
+.ant-progress-circle .ant-progress-text {
+  color: @colorPrimaryLigth;
+}
+.ant-progress-inner:not(.ant-progress-circle-gradient) .ant-progress-circle-path {
+  stroke: @colorPrimaryLigth;
+}
+//---Menu Panel
+.ant-menu-item .anticon, .ant-menu-submenu-title .anticon {
+  font-size: 22px;
+//  color: @colorPrimaryText;
+}
+.ant-menu-inline-collapsed > .ant-menu-item .anticon, .ant-menu-inline-collapsed > .ant-menu-item-group > .ant-menu-item-group-list > .ant-menu-item .anticon, .ant-menu-inline-collapsed > .ant-menu-item-group > .ant-menu-item-group-list > .ant-menu-submenu > .ant-menu-submenu-title .anticon, .ant-menu-inline-collapsed > .ant-menu-submenu > .ant-menu-submenu-title .anticon {
+  font-size: 22px;
+}
+.ant-btn-primary {
+  color: @colorPrimaryText;
+  background: @colorNavButtons;
+  border-color: @colorNavButtons;
+}
+.ant-btn-primary:hover {
+  color: @colorPrimaryText;
+  background: @colorNavButtonsLigth;
+  border-color: @colorNavButtonsLigth;
+}
+.ant-btn-primary:focus {
+  color: @colorPrimaryText;
+  background: @colorNavButtonsLigth;
+  border-color: @colorNavButtonsLigth;
+}
+.ant-btn-primary:active {
+  transform: scale(0.9);
+}
+.ant-menu.ant-menu-dark{
+  background: @colorPrimaryDark;
+}
+.ant-menu-dark .ant-menu-sub, .ant-menu.ant-menu-dark .ant-menu-sub  {
+  background: @colorPrimaryDarkest;
+}
+.ant-menu-dark.ant-menu-dark:not(.ant-menu-horizontal) .ant-menu-item-selected {
+  background-color: @colorNavButtonsLigth;
+  color: @colorPrimaryText;
+}
+.ant-menu.ant-menu-dark, .ant-menu-dark .ant-menu-sub, .ant-menu.ant-menu-dark .ant-menu-sub {
+  font-size: 18px;
+}
+
+// ---Form
+.ant-switch {
+  color: rgba(0, 0, 0, 0.65);
+  background-color: @colorDarkLigth;
+}
+.ant-switch-checked {
+  background-color: @colorPrimary;
+}
+
+// ---Pagination
+.ant-pagination-item a {
+  color: rgb(173, 150, 132);
+  &:hover{
+    color: @colorNavButtonsLigth;
+  }
+  &:focus{
+    color: @colorNavButtonsLigth;
+  }
+}
+.ant-pagination-item:focus a, .ant-pagination-item:hover a {
+  color: @colorNavButtonsLigth;
+}
+.ant-pagination-item-active a {
+  color: @colorPrimary;
+  &:focus{
+    color: @colorNavButtonsLigth;
+  }
+}
+.ant-pagination-item-active {
+  color: @colorPrimary;
+  &:focus{
+    color: @colorNavButtonsLigth;
+  }
+}
+.ant-pagination-item{
+  border: 1px solid @colorPrimary;
+  &:hover{
+    border: 1px solid @colorNavButtonsLigth;
+  }
+  &:focus{
+    border: 1px solid @colorNavButtonsLigth;
+  }
+}
+.ant-pagination-prev .ant-pagination-item-link, .ant-pagination-next .ant-pagination-item-link {
+  .anticon{
+    color: rgb(173, 150, 132);
+  }
+  &:hover{
+    border: 1px solid @colorNavButtonsLigth;
+    .anticon{
+      color: @colorNavButtonsLigth;
+    }
+  }
+}
+.ant-select:not(.ant-select-disabled):hover .ant-select-selector {
+  border-color: @colorPrimaryText;
+  &:hover{
+    border-color: @colorNavButtonsLigth;
+  }
+  &:focus{
+    color: @colorNavButtonsLigth;
+    border-color: @colorNavButtonsLigth;
+  }
+}
+
+// descriptions
+.ant-descriptions-bordered .ant-descriptions-item-label {
+  background-color: #e4e4e4;
+}

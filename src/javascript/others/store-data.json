@@ -1,0 +1,238 @@
+{
+  "productos": {
+    "categoriasFiltro": [
+      {
+        "label": "Todas",
+        "value": null
+      },
+      {
+        "label": "Laptops",
+        "value": "Laptops"
+      },
+      {
+        "label": "Mobil",
+        "value": "Mobil"
+      },
+      {
+        "label": "Gaming",
+        "value": "Gaming"
+      },
+      {
+        "label": "Almacenamiento",
+        "value": "Almacenamiento"
+      },
+      {
+        "label": "Accesorios cool",
+        "value": "Accesorios cool"
+      },
+      {
+        "label": "Redes",
+        "value": "Redes"
+      },
+      {
+        "label": "Para geeks",
+        "value": "Para geeks"
+      },
+      {
+        "label": "Tu vehículo",
+        "value": "Tu vehículo"
+      },
+      {
+        "label": "Cosas que no necesitas",
+        "value": "Cosas que no necesitas"
+      }
+    ],
+    "categorias": [
+      {
+        "label": "Videojuegos",
+        "value": "Videojuegos"
+      },
+      {
+        "label": "Dulces",
+        "value": "Dulces"
+      },
+      {
+        "label": "Computo",
+        "value": "Computo"
+      },
+      {
+        "label": "Celular",
+        "value": "Celular"
+      },
+      {
+        "label": "Sublimado",
+        "value": "Sublimado"
+      }
+    ],
+    "origen": [
+      {
+        "label": "local",
+        "value": "local"
+      },
+      {
+        "label": "Mercado Libre",
+        "value": "Mercado Libre"
+      },
+      {
+        "label": "Mercado Libre Propio",
+        "value": "Mercado Libre Propio"
+      }
+    ],
+    "garantias": [
+      {
+        "label": "1 año",
+        "value": "1 año"
+      },
+      {
+        "label": "3 meses",
+        "value": "3 meses"
+      },
+      {
+        "label": "3 meses + la incluida por el fabricante",
+        "value": "3 meses + la incluida por el fabricante"
+      },
+      {
+        "label": "1 mes + la incluida por el fabricante",
+        "value": "1 mes + la incluida por el fabricante"
+      },
+      {
+        "label": "1 mes + 11 meses por el fabricante",
+        "value": "1 mes + 11 meses por el fabricante"
+      },
+      {
+        "label": "1 mes + 5 meses por el fabricante",
+        "value": "1 mes + 5 meses por el fabricante"
+      },
+      {
+        "label": "1 mes + 2 meses por el fabricante",
+        "value": "1 mes + 2 meses por el fabricante"
+      },
+      {
+        "label": "15 días + 15 días por el fabricante",
+        "value": "15 días + 15 días por el fabricante"
+      },
+      {
+        "label": "15 días + la incluida por el fabricante",
+        "value": "15 días + la incluida por el fabricante"
+      },
+      {
+        "label": "12 meses por el fabricante",
+        "value": "12 meses por el fabricante"
+      },
+      {
+        "label": "6 meses por el fabricante",
+        "value": "6 meses por el fabricante"
+      },
+      {
+        "label": "3 meses por el fabricante",
+        "value": "3 meses por el fabricante"
+      },
+      {
+        "label": "1 meses por el fabricante",
+        "value": "1 meses por el fabricante"
+      },
+      {
+        "label": "La incluida por el fabricante",
+        "value": "La incluida por el fabricante"
+      },
+      {
+        "label": "No incluida",
+        "value": "No incluida"
+      }
+    ],
+    "tipos": [
+      {
+        "label": "normal",
+        "value": "normal"
+      },
+      {
+        "label": "Nueva",
+        "value": "Nuevo"
+      },
+      {
+        "label": "Touch",
+        "value": "Touch"
+      },
+      {
+        "label": "Ultra Small",
+        "value": "Ultra Small"
+      },
+      {
+        "label": "Gaming",
+        "value": "Gaming"
+      }
+    ],
+    "promos": [
+      {
+        "label": "Ninguna",
+        "value": "normal"
+      },
+      {
+        "label": "-10%",
+        "value": "-10%"
+      },
+      {
+        "label": "-20%",
+        "value": "-20%"
+      },
+      {
+        "label": "-30%",
+        "value": "-30%"
+      },
+      {
+        "label": "-40%",
+        "value": "-40%"
+      },
+      {
+        "label": "-50%",
+        "value": "-50%"
+      },
+      {
+        "label": "-60%",
+        "value": "-60%"
+      },
+      {
+        "label": "-70%",
+        "value": "-70%"
+      },
+      {
+        "label": "-80%",
+        "value": "-80%"
+      }
+    ]
+  },
+  "estadosMex": [
+    { "label": "AGUASCALIENTES", "value": "AGUASCALIENTES" },
+    { "label": "BAJA CALIFORNIA",  "value": "BAJA CALIFORNIA" },
+    { "label": "BAJA CALIFORNIA SUR", "value": "BAJA CALIFORNIA SUR" },
+    { "label": "CHIHUAHUA", "value": "CHIHUAHUA" },
+    { "label": "CHIAPAS", "value": "CHIAPAS" },
+    { "label": "CAMPECHE", "value": "CAMPECHE" },
+    { "label": "CIUDAD DE MEXICO", "value": "CIUDAD DE MEXICO" },
+    { "label": "COAHUILA", "value": "COAHUILA" },
+    { "label": "COLIMA", "value": "COLIMA" },
+    { "label": "DURANGO", "value": "DURANGO" },
+    { "label": "GUERRERO", "value": "GUERRERO" },
+    { "label": "GUANAJUATO", "value": "GUANAJUATO" },
+    { "label": "HIDALGO", "value": "HIDALGO" },
+    { "label": "JALISCO", "value": "JALISCO" },
+    { "label": "MICHOACAN", "value": "MICHOACAN" },
+    { "label": "ESTADO DE MEXICO", "value": "ESTADO DE MEXICO" },
+    { "label": "MORELOS", "value": "MORELOS" },
+    { "label": "NAYARIT", "value": "NAYARIT" },
+    { "label": "NUEVO LEON",  "value": "NUEVO LEON" },
+    { "label": "OAXACA", "value": "OAXACA" },
+    { "label": "PUEBLA", "value": "PUEBLA" },
+    { "label": "QUINTANA ROO",  "value": "QUINTANA ROO" },
+    { "label": "QUERETARO", "value": "QUERETARO" },
+    { "label": "SINALOA", "value": "SINALOA" },
+    { "label": "SAN LUIS POTOSI", "value": "SAN LUIS POTOSI" },
+    { "label": "SONORA", "value": "SONORA" },
+    { "label": "TABASCO", "value": "TABASCO" },
+    { "label": "TLAXCALA", "value": "TLAXCALA" },
+    { "label": "TAMAULIPAS", "value": "TAMAULIPAS" },
+    { "label": "VERACRUZ", "value": "VERACRUZ" },
+    { "label": "YUCATAN", "value": "YUCATAN" },
+    { "label": "ZACATECAS", "value": "ZACATECAS" } 
+  ]
+}

@@ -1,0 +1,69 @@
+    Pendiente:
+-Crear dummy data para cuando no cargan los servicios (home, productos, etc)
+-El rastreo de orden contiene el link de pago e instrucciones para hacer el pago, el admin puede generar ordenes.
+-Hacer Condicion en home para que sólo haga el request si no están los datos del home
+-importar todos los colores de button mlg desde store-data.json y agregar evento sintetico
+-conisderar metodos de pago dinámicos
+-mandar todas las busquedas a redux con numero de página para reducir número de solicitudes
+-En la página de producto agregar links de contacto con servicio de incremento de preguntas
+-Formulario de agregar producto
+-Privilegios dinámicos de admin
+-Utilidad
+-Administrar  ordenes
+-Fix path en StoreMenu JustMenu para regExpressions
+-Fix responsive en filtros
+-New error function with isLoading false and error modal
+-Responsable de venta en redux
+-Agregar boton de limpiar al form de editar producto
+-Inicializar form de agregar producto con imagen dummy
+-revisar formularios que acepten empty string y vacios
+-Cambiar categoria y subcategoria a un arreglo
+-Cambiar precio local por precio mostrador
+-Ajustar estandar de programacion en todos los contenedores
+-Limpiar y estandarizar css
+-Cambiar colores botones por ajustes de json tipo "primary, secodary, third, etc"
+-Copiar nuevos estandares a ptoyectos limpios
+-Generar html y servidor limpio preparado para prototipo y subir a github
+-Cambiar imports locales de estilos en custom components
+-Revisar class components vs typescript para documentar custom comps
+-Crear algoritmo de lectura de arbol de categorias
+-Crear multiples temas
+-Revisar y suavizar flujo de administrar productos
+-Estandarizar custom Inputs y agregar mas formularios de ejemplo en  CommonComps
+-Hacer un formulario no controlado con validaciones de joi utilizando una master function tipo switch case y funciones validadoras para cada caso tipo promise resolve
+-Repasar nombres con mi hermana
+-Meter ventaTipo catalogo a los jsons estáticos
+-Hacer que en busquedas exitosas se contraiga el filtro
+-Falta limpiar filtros ordenes
+-El get home no para la carga en error
+-Agregar nota de busqueda sin resultados en admin orders
+-Meter Select en responsable
+-Limpiar formulario de edicion de productos
+-Bug en cancelar, checa eso
+-Agregar readme para documentar
+-Configura prettier para formateo en save
+-Bugsnag o mixpanel trackear errores
+-Revisar Enrutamiento productivo
+-Al agregar productos, disponibes entero positivo
+-Invertir logica para que diga producto usado en vez de nuevo
+
+
+    Smurfeado:
+-Boton limpiar filtros
+-Agregar boton de limpiar carrito
+-Modo caja
+-Seccion de información completa del producto
+-Limpiar datos pre-request en agregar/editar
+-Agregar funcion de eliminar con warning modal de confirmacion
+-Agregar ver información completa del producto al menu
+-Modificar funcionalidad updated false en search all products
+-Implementar Fixed Columns and Header para mostrar más datos en la tabla de productos
+-Hacer que los filtros se escondan después de una busqueda correcta
+-Hacer componente de carga global en navbar
+-Terminar tabla paginada de productos
+-Hacer pantalla de "Realiza una busqueda o deja vacio para traer todos los productos"
+-Hacer pantalla de "Sin resultados de busqueda"
+-Agregar analiticas al menu
+-Cambiar iconos del menu
+-Considerar contadores de productos en sort
+-Hacer master tienda wrapper container y comps y crear la home de tienda y la de administrar productos
