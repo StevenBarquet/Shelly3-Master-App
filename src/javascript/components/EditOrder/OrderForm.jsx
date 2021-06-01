@@ -6,10 +6,10 @@ import {
   VerticalAlignBottomOutlined,
   VerticalAlignTopOutlined
 } from '@ant-design/icons';
-// ---ComonComponents
-import ButtonMlg from 'CommonComps/ButtonMlg';
-import mapOptions from 'CommonComps/mapOptions';
-import FitImg from 'CommonComps/FitImg';
+// ---Util Comps
+import ButtonMlg from 'Utils/ButtonMlg';
+import mapOptions from 'Utils/mapOptions';
+import FitImg from 'Utils/FitImg';
 // ---Others
 import { priceFormat } from 'Others/otherMethods';
 import { dateMongoToClient } from 'Others/dateMethods';

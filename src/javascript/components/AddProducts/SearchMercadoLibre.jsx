@@ -4,7 +4,7 @@ import React from 'react';
 import { Row, Col, Form, Input } from 'antd';
 import { CopyOutlined } from '@ant-design/icons';
 // ---CommonComps
-import ButtonMlg from 'CommonComps/ButtonMlg';
+import ButtonMlg from 'Utils/ButtonMlg';
 // ---Other
 import { validateML } from './SearchMercadoLibreJoi';
 

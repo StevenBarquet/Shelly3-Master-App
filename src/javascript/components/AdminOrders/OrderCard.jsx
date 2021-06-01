@@ -1,10 +1,10 @@
 // ---Dependencys
 import React from 'react';
 import { Row, Col } from 'antd';
-// ---ComonComponents
-import InvisibleButton from 'CommonComps/InvisibleButton';
-import FitImg from 'CommonComps/FitImg';
-import CloseButton from 'CommonComps/CloseButton';
+// ---Util Comps
+import InvisibleButton from 'Utils/InvisibleButton';
+import FitImg from 'Utils/FitImg';
+import CloseButton from 'Utils/CloseButton';
 // ---Others
 import { priceFormat } from 'Others/otherMethods';
 import { dateMongoToClient } from 'Others/dateMethods';

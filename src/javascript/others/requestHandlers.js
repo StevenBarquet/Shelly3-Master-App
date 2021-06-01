@@ -1,7 +1,7 @@
 // ---Dependencys
 import { message } from 'antd';
 // ---CommonComps
-import ModalError from 'CommonComps/ModalError';
+import ModalError from 'Utils/ModalError';
 
 export function asyncHandler(
   requestFunction,

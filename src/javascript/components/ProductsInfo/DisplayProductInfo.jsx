@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { Descriptions, Badge, Row, Col } from 'antd';
 // --CommonComps
-import FitImg from 'CommonComps/FitImg';
+import FitImg from 'Utils/FitImg';
 // --Others
 import { priceFormat } from 'Others/otherMethods';
 

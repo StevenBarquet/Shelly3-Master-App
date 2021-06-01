@@ -1,9 +1,9 @@
 // ---Dependencys
 import React, { useReducer } from 'react';
 import { Form, Row, Col, Input, Select, Switch } from 'antd';
-// ---ComonComponents
-import ButtonMlg from 'CommonComps/ButtonMlg';
-import mapOptions from 'CommonComps/mapOptions';
+// ---Util Comps
+import ButtonMlg from 'Utils/ButtonMlg';
+import mapOptions from 'Utils/mapOptions';
 // ---Components
 // import AuthValidate from 'Comp/AuthValidate';
 // ---Others

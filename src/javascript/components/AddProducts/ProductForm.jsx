@@ -2,9 +2,9 @@
 import React from 'react';
 import { Form, Row, Col, Input, Select, Switch, InputNumber } from 'antd';
 import { EditOutlined, PlusOutlined, ClearOutlined } from '@ant-design/icons';
-// ---ComonComponents
-import ButtonMlg from 'CommonComps/ButtonMlg';
-import mapOptions from 'CommonComps/mapOptions';
+// ---Util Comps
+import ButtonMlg from 'Utils/ButtonMlg';
+import mapOptions from 'Utils/mapOptions';
 // ---Others
 import { productos } from 'Others/store-data.json';
 

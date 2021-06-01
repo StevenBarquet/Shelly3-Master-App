@@ -5,7 +5,7 @@ import { Row, Col, Form, Input } from 'antd';
 import { useHistory } from 'react-router-dom';
 import { LoginOutlined } from '@ant-design/icons';
 // ---CommonComps
-import ButtonMlg from 'CommonComps/ButtonMlg';
+import ButtonMlg from 'Utils/ButtonMlg';
 // ---Other
 import { isId } from 'Others/otherMethods';
 
@@ -27,7 +27,7 @@ function SubmitButton() {
 // ------------------------------------------ COMPONENT-----------------------------------------
 function SearchPush(props) {
   // ----------------------- hooks, const, props y states
-  const { pushPath } = props;
+  const { pushPath, labelID } = props;
   const history = useHistory();
 
   // ----------------------- Metodos Principales
@@ -55,7 +55,7 @@ function SearchPush(props) {
               labelCol={{ span: 6 }}
               wrapperCol={{ span: 17 }}
               name="id"
-              label="ID del producto"
+              label={labelID}
               rules={[
                 {
                   required: false,

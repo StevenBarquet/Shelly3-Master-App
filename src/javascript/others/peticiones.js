@@ -115,6 +115,16 @@ export async function getOneOrder(id) {
     return error;
   }
 }
+export async function updateOrder(data) {
+  const endpoint = 'ordenes/editar';
+  const url = urlServer + endpoint;
+  try {
+    const respose = await axios.put(url, data);
+    return respose;
+  } catch (error) {
+    return error;
+  }
+}
 // -------------------------------------------Old----------------------------------------
 export async function genericGet(url) {
   try {
@@ -289,18 +299,6 @@ export async function checkItems(data) {
     return error;
   }
 }
-
-export async function updateOrder(data) {
-  const endpoint = 'ordenes/editar';
-  const url = urlServer + endpoint;
-  try {
-    const respose = await axios.put(url, data);
-    return respose;
-  } catch (error) {
-    return error;
-  }
-}
-
 export async function deleteOrder(id) {
   const endpoint = 'ordenes/borrar/';
   const url = urlServer + endpoint + id;

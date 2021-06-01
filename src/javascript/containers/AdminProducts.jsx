@@ -4,7 +4,7 @@ import React, { useEffect } from 'react';
 import StoreMenuCont from 'Cont/StoreMenuCont';
 import ProductSearcher from 'Comp/AdminProducts/ProductSearcher';
 import ProductTable from 'Comp/AdminProducts/ProductTable';
-import ModalConfirmation from 'CommonComps/ModalConfirmation';
+import ModalConfirmation from 'Utils/ModalConfirmation';
 // ---Redux
 import { useSelector, useDispatch } from 'react-redux';
 import { updateLoading } from 'Actions/appInfo';

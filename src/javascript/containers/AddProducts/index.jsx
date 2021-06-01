@@ -5,10 +5,11 @@ import { useSelector, useDispatch } from 'react-redux';
 import { updateLoading } from 'Actions/appInfo';
 import { setNotUpdated } from 'Actions/master';
 // ---Components
-import SearchPush from 'Comp/ProductsInfo/SearchPush';
 import StoreMenuCont from 'Cont/StoreMenuCont';
 import ProductForm from 'Comp/AddProducts/ProductForm';
 import SearchMercadoLibre from 'Comp/AddProducts/SearchMercadoLibre';
+// ---Common Comps
+import SearchPush from 'CComps/SearchPush';
 // ---Others
 import { isId, ignoreArgs, removeEmptyAndNull } from 'Others/otherMethods';
 import superMLhandler from 'Others/superMLhandler';
@@ -285,7 +286,7 @@ function AddProducts() {
       <div className="store-content-container">
         <h1>Agregar Productos</h1>
       </div>
-      <SearchPush pushPath="/master/addProductos" />
+      <SearchPush labelID="ID del producto" pushPath="/master/addProductos" />
       <SearchMercadoLibre onFinish={onSearchML} />
       <div className="store-form-container">
         {!ReRender && (

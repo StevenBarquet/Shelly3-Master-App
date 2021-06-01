@@ -2,8 +2,8 @@
 import React from 'react';
 import { Col, Row } from 'antd';
 import { LeftOutlined, RightOutlined } from '@ant-design/icons';
-// ---ComonComponents
-import ButtonMlg from 'CommonComps/ButtonMlg';
+// ---Util Comps
+import ButtonMlg from 'Utils/ButtonMlg';
 // ------------------------------------------ COMPONENT-----------------------------------------
 function AdvanceButtons(props) {
   const { step, toStep, responsableVenta } = props;

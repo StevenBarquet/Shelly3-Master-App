@@ -3,8 +3,8 @@ import React, { useState } from 'react';
 import { Card, Form, Input, Row } from 'antd';
 import { withRouter } from 'react-router-dom';
 import { UserSwitchOutlined } from '@ant-design/icons';
-// ---ComonComponents
-import ButtonMlg from 'CommonComps/ButtonMlg';
+// ---Util Comps
+import ButtonMlg from 'Utils/ButtonMlg';
 
 const formItemLayout = {
   labelCol: { span: 6 },

@@ -7,7 +7,8 @@ import { updateOneProduct } from 'Actions/master';
 // ---Components
 import StoreMenuCont from 'Cont/StoreMenuCont';
 import DisplayProductInfo from 'Comp/ProductsInfo/DisplayProductInfo';
-import SearchPush from 'Comp/ProductsInfo/SearchPush';
+// ---Common Comps
+import SearchPush from 'CComps/SearchPush';
 // ---Other
 import { isId } from 'Others/otherMethods';
 // --Request
@@ -65,7 +66,7 @@ function ProductsInfo() {
       <div className="store-content-container">
         <h1>Información del producto</h1>
       </div>
-      <SearchPush pushPath="/master/productInfo" />
+      <SearchPush labelID="ID del producto" pushPath="/master/productInfo" />
       <DisplayProductInfo data={productData} />
     </StoreMenuCont>
   );

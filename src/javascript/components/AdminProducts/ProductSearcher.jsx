@@ -9,8 +9,8 @@ import {
   ClearOutlined
 } from '@ant-design/icons';
 // ---CommonComps
-import ButtonMlg from 'CommonComps/ButtonMlg';
-import mapOptions from 'CommonComps/mapOptions';
+import ButtonMlg from 'Utils/ButtonMlg';
+import mapOptions from 'Utils/mapOptions';
 // ---Other
 import { productos } from 'Others/store-data.json';
 

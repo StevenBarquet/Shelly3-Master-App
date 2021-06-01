@@ -1,9 +1,9 @@
 // ---Dependencys
 import React from 'react';
 import { Row, Col, Form, InputNumber } from 'antd';
-// ---ComonComponents
-import FitImg from 'CommonComps/FitImg';
-import CloseButton from 'CommonComps/CloseButton';
+// ---Util Comps
+import FitImg from 'Utils/FitImg';
+import CloseButton from 'Utils/CloseButton';
 // ---Others
 import { priceFormat } from 'Others/otherMethods';
 

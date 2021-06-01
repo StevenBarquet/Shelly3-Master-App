@@ -10,8 +10,8 @@ import StepsMostrador from 'Comp/StoreCart/StepsMostrador';
 import AdvanceButtons from 'Comp/StoreCart/AdvanceButtons';
 import OrderDataForm from 'Comp/StoreCart/OrderDataForm';
 import CartContainer from 'Comp/StoreCart/CartContainer';
-// ---CommonComps
-import ModalConfirmation from 'CommonComps/ModalConfirmation';
+// ---Util Comps
+import ModalConfirmation from 'Utils/ModalConfirmation';
 // ---Cont
 import StoreMenuCont from 'Cont/StoreMenuCont';
 // ---Others

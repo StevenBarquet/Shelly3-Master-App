@@ -15,8 +15,8 @@ import {
 import ProductTable from 'Comp/StoreCart/ProductTable';
 import ProductCard from 'Comp/StoreCart/ProductCard';
 import ProductSearcher from 'Comp/AdminProducts/ProductSearcher';
-// ---ComonComponents
-import mapOptions from 'CommonComps/mapOptions';
+// ---Util Comps
+import mapOptions from 'Utils/mapOptions';
 // ---Others
 import { catalogos } from 'Others/labels.json';
 import { removeNullProperties } from 'Others/otherMethods';

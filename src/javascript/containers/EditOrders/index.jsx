@@ -5,18 +5,16 @@ import { useSelector, useDispatch } from 'react-redux';
 import { updateLoading } from 'Actions/appInfo';
 // ---Components
 import OrderForm from 'Comp/EditOrder/OrderForm';
+// ---Common Comps
+import SearchPush from 'CComps/SearchPush';
 // ---Containers
 import StoreMenuCont from 'Cont/StoreMenuCont';
 // --Request
 import { asyncHandler, testError } from 'Others/requestHandlers.js';
-import {
-  getOneOrder,
-  updateProductRequest,
-  createProductRequest
-} from 'Others/peticiones.js';
+import { getOneOrder, updateOrder } from 'Others/peticiones.js';
 // ---Others
 import { isId, ignoreArgs, removeEmptyAndNull } from 'Others/otherMethods';
-import { joiFormValidate, messagesSchema } from './EditOrdersSchema';
+import { messagesSchema } from './EditOrdersSchema';
 
 // ---AUX COMPONENTS
 
@@ -84,6 +82,11 @@ function EditOrders() {
       asyncHandler(getOneOrder, onSuccessSearch, onError, urlID);
     }
   }
+  function updateOrderData() {
+    isLoading(true);
+    const fixedData = formatDataForRequest(state.form);
+    asyncHandler(updateOrder, onSuccessGen, onError, fixedData);
+  }
   function onChangeForm(formData) {
     // console.log('onChangeForm: ', formData);
     dispatch({ type: RESET_VALIDATIONS });
@@ -115,6 +118,9 @@ function EditOrders() {
     isLoading(false);
     setReRender(true);
   }
+  function onSuccessGen() {
+    isLoading(false);
+  }
   function fitDataToForm(data) {
     const { cobroAdicional } = data;
     let newData;
@@ -126,15 +132,32 @@ function EditOrders() {
     newData = ignoreArgs(newData, ignore);
     return newData;
   }
+  function formatDataForRequest(data) {
+    const { concepto, cantidad } = data;
+    const cobroAdicional = cantidad ? { concepto, cantidad } : null;
+
+    const ignore = ['concepto', 'cantidad'];
+    let newData = ignoreArgs(data, ignore);
+
+    const { telefono } = newData;
+    newData = telefono
+      ? { ...newData, telefono: telefono.toString() }
+      : newData;
+    newData = { ...newData, cobroAdicional };
+
+    return removeEmptyAndNull(newData);
+  }
 
   return (
     <StoreMenuCont>
+      <SearchPush labelID="ID de la orden" pushPath="/master/editOrder" />
       {!ReRender && (
         <OrderForm
           defaultValues={state.form || {}}
           onChangeForm={onChangeForm}
           validation={state.msgSchema}
           isValidForm={state.isValidForm}
+          onSubmit={updateOrderData}
         />
       )}
     </StoreMenuCont>

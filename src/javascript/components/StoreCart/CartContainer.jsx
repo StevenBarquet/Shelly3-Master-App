@@ -6,8 +6,8 @@ import { ClearOutlined } from '@ant-design/icons';
 import SearchCont from 'Cont/StoreCart/SearchCont';
 // ---Components
 import CartItem from 'Comp/StoreCart/CartItem';
-// ---ComonComponents
-import ButtonMlg from 'CommonComps/ButtonMlg';
+// ---Util Comps
+import ButtonMlg from 'Utils/ButtonMlg';
 
 // ---AUX COMPONENTS
 function CartList(props) {

@@ -6,8 +6,8 @@ import {
   VerticalAlignBottomOutlined,
   VerticalAlignTopOutlined
 } from '@ant-design/icons';
-// ---ComonComponents
-import ButtonMlg from 'CommonComps/ButtonMlg';
+// ---Util Comps
+import ButtonMlg from 'Utils/ButtonMlg';
 // ---Others
 import { priceFormat } from 'Others/otherMethods';
 

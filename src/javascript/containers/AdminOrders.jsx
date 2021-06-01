@@ -6,7 +6,7 @@ import OrderTable from 'Comp/AdminOrders/OrderTable';
 import OrderCard from 'Comp/AdminOrders/OrderCard';
 import OrderSearcher from 'Comp/AdminOrders/OrderSearcher';
 // ---CommonComps
-import ModalConfirmation from 'CommonComps/ModalConfirmation';
+import ModalConfirmation from 'Utils/ModalConfirmation';
 // ---Redux
 import { useDispatch } from 'react-redux';
 import { updateLoading } from 'Actions/appInfo';
