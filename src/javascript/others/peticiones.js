@@ -105,6 +105,16 @@ export async function cancelOrderRequest(id) {
     return error;
   }
 }
+export async function getOneOrder(id) {
+  const endpoint = 'ordenes/' + id;
+  const url = urlServer + endpoint;
+  try {
+    const respose = await axios.get(url);
+    return respose;
+  } catch (error) {
+    return error;
+  }
+}
 // -------------------------------------------Old----------------------------------------
 export async function genericGet(url) {
   try {

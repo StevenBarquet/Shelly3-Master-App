@@ -5,25 +5,17 @@ import { invalidMessages, validateSchema } from 'Others/joi-stuff';
 
 // ---schema JS File
 export const messagesSchema = {
-  concepto: {
+  estatus: {
     status: 'success',
     message: invalidMessages.isRequired
   },
-  cantidad: {
+  responsableVenta: {
     status: 'success',
-    message: invalidMessages.isNumber + ' diferente a 0'
-  },
-  notaVenta: {
-    status: 'success',
-    message: invalidMessages.optional
+    message: invalidMessages.isRequired
   },
   metodoPago: {
     status: 'success',
-    message: invalidMessages.isRequired
-  },
-  montoCliente: {
-    status: 'success',
-    message: invalidMessages.isNumber
+    message: invalidMessages.isString
   },
   correo: {
     status: 'success',
@@ -40,6 +32,18 @@ export const messagesSchema = {
   telefono: {
     status: 'success',
     message: invalidMessages.isNumber
+  },
+  notaVenta: {
+    status: 'success',
+    message: invalidMessages.optional
+  },
+  concepto: {
+    status: 'success',
+    message: invalidMessages.isRequired
+  },
+  cantidad: {
+    status: 'success',
+    message: invalidMessages.isNumber + ' diferente a 0'
   }
 };
 
@@ -54,9 +58,10 @@ export function joiFormValidate(formData) {
       // Valida que sea un numero mayor a 0 o una cadena vacia o nula
       otherwise: Joi.valid(null, '')
     }),
+    estatus: Joi.string().allow(''),
+    responsableVenta: Joi.string().allow(''),
     notaVenta: Joi.string().allow(''),
     metodoPago: Joi.string().required(),
-    montoCliente: Joi.number().not(0),
     correo: Joi.string().allow(''),
     nombre: Joi.string().allow(''),
     apellido: Joi.string().allow(''),

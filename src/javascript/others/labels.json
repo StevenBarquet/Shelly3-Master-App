@@ -136,6 +136,35 @@
         "label": "Entrega a convenir programada",
         "value": "Entrega a convenir programada"
       }],
+      "estatus": [
+        {
+          "label": "Iniciado",
+          "value": "Iniciado"
+        },
+        {
+          "label": "En revision de pago",
+          "value": "En revision de pago"
+        },
+        {
+          "label": "Pagado",
+          "value": "Pagado"
+        },
+        {
+          "label": "En proceso de envío",
+          "value": "En proceso de envío"
+        },
+        {
+          "label": "Enviado",
+          "value": "Enviado"
+        },
+        {
+          "label": "Finalizado",
+          "value": "Finalizado"
+        },
+        {
+          "label": "Entrega a convenir programada",
+          "value": "Entrega a convenir programada"
+        }],
       "responsables": [
         {
           "label": "Kros",
