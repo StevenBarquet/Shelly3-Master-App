@@ -13,6 +13,7 @@ import MasterLogout from 'Pages/MasterLogoutPage';
 import StoreCart from 'Pages/StoreCartPage';
 import AdminOrders from 'Pages/AdminOrdersPage';
 import EditOrders from 'Pages/EditOrdersPage';
+import UtilityDay from 'Pages/UtilityDayPage';
 // ---Pages Others
 import Error404Page from 'Pages/Error404Page';
 // ---Components
@@ -24,6 +25,8 @@ function AppContainer() {
     <BrowserRouter>
       <NavbarCont />
       <Switch>
+        {/* Utility */}
+        <Route exact path="/master/utilidadDia" component={UtilityDay} />
         {/* Products */}
         <Route exact path="/master" component={ToHomeMaster} />
         <Route exact path="/master/tienda" component={HomePageMaster} />

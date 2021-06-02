@@ -32,7 +32,8 @@ function JustMenu(props) {
     ],
     orders: ['/master/adminOrders', '/master/editOrder', '/master/storeCart'],
     home: ['/master/publicHome'],
-    shipping: ['/master/shippingMethods']
+    shipping: ['/master/shippingMethods'],
+    utility: ['/master/utilidadDia']
   };
 
   const keys = {
@@ -42,9 +43,10 @@ function JustMenu(props) {
     [routes.products[3]]: routes.products[3],
     [routes.home[0]]: routes.home[0],
     [routes.shipping[0]]: routes.shipping[0],
-    [routes.orders[0]]: '4',
-    [routes.orders[1]]: '4',
-    [routes.orders[2]]: '4'
+    [routes.orders[0]]: 'orderMenu',
+    [routes.orders[1]]: 'orderMenu',
+    [routes.orders[2]]: 'orderMenu',
+    [routes.utility[0]]: 'utilityMenu'
   };
 
   if (!reRender)
@@ -67,8 +69,17 @@ function JustMenu(props) {
           inlineCollapsed={collapsed}
           selectedKeys={[currentPath]}
         >
-          <SubMenu key="1" icon={<DollarCircleOutlined />} title="Utilidades">
-            <Menu.Item key="sub1-1">Hoy</Menu.Item>
+          <SubMenu
+            key="utilityMenu"
+            icon={<DollarCircleOutlined />}
+            title="Utilidades"
+          >
+            <Menu.Item
+              key={routes.utility[0]}
+              onClick={() => goToRoute(routes.utility[0])}
+            >
+              Hoy
+            </Menu.Item>
             <Menu.Item key="sub1-2">Semanal</Menu.Item>
             <Menu.Item key="sub1-3">Mensual</Menu.Item>
             <Menu.Item key="sub1-4">Anual</Menu.Item>
@@ -112,7 +123,7 @@ function JustMenu(props) {
               Consultar un producto
             </Menu.Item>
           </SubMenu>
-          <SubMenu key="4" icon={<CarryOutOutlined />} title="Ordenes">
+          <SubMenu key="orderMenu" icon={<CarryOutOutlined />} title="Ordenes">
             <Menu.Item
               key={routes.orders[0]}
               onClick={() => goToRoute(routes.orders[0])}

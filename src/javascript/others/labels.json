@@ -58,6 +58,9 @@
     },
     "EditOrdersPage": {
       "title": "Editar de ordenes"
+    },
+    "UtilityDayPage": {
+      "title": "Utilidades del día"
     }
   },
   "catalogos":{
