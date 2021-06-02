@@ -6,7 +6,7 @@ const envType = process.env.NODE_ENV;
 export const urlServer =
   envType === 'development'
     ? 'http://localhost:4000/'
-    : 'https://shelly-store.com:4000/';
+    : 'https://copiadorasqueen.com/:4000/';
 // export const urlServer = 'https://shelly-store.com:4000/';
 // export const urlServer = 'http://localhost:4000/';
 
