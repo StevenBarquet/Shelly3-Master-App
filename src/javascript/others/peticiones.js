@@ -125,6 +125,17 @@ export async function updateOrder(data) {
     return error;
   }
 }
+// -------------------------------------------Ordenes---------------------------------------
+export async function searchUtility(data) {
+  const endpoint = 'utilities/buscar';
+  const url = urlServer + endpoint;
+  try {
+    const respose = await axios.post(url, data);
+    return respose;
+  } catch (error) {
+    return error;
+  }
+}
 // -------------------------------------------Old----------------------------------------
 export async function genericGet(url) {
   try {

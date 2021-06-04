@@ -33,6 +33,8 @@ function reducer(state, action) {
 // ------------------------------------------ COMPONENT-----------------------------------------
 function SimpleComp() {
   const [state, dispatch] = useReducer(reducer, initialState);
+  // ----------------------- Metodos Principales
+  // ----------------------- Metodos Auxiliares
   return (
     <React.Fragment>
       <span>Ejemplo Simple</span>

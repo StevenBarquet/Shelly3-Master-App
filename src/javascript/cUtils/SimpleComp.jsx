@@ -7,6 +7,8 @@ import React from 'react';
 // import AuthValidate from 'Comp/AuthValidate';
 // ------------------------------------------ COMPONENT-----------------------------------------
 function SimpleComp() {
+  // ----------------------- Metodos Principales
+  // ----------------------- Metodos Auxiliares
   return (
     <React.Fragment>
       <span>Ejemplo Simple</span>

@@ -1,18 +1,18 @@
 // ---Dependencys
 import React from 'react';
 // ---Containers
-import UtilityDay from 'Cont/UtilityDay';
+import UtilityYear from 'Cont/UtilityYear';
 // ---Handle html headers
 import CustomHelmet from 'Comp/CustomHelmet';
 
 // ------------------------------------------ COMPONENT-----------------------------------------
-const UtilityDayPage = () => {
+const UtilityYearPage = () => {
   return (
     <React.Fragment>
-      <CustomHelmet pageName="UtilityDayPage" />
-      <UtilityDay />
+      <CustomHelmet pageName="UtilityYearPage" />
+      <UtilityYear />
     </React.Fragment>
   );
 };
 
-export default UtilityDayPage;
+export default UtilityYearPage;

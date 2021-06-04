@@ -14,6 +14,9 @@ import StoreCart from 'Pages/StoreCartPage';
 import AdminOrders from 'Pages/AdminOrdersPage';
 import EditOrders from 'Pages/EditOrdersPage';
 import UtilityDay from 'Pages/UtilityDayPage';
+import UtilityWeek from 'Pages/UtilityWeekPage';
+import UtilityMonth from 'Pages/UtilityMonthPage';
+import UtilityYear from 'Pages/UtilityYearPage';
 // ---Pages Others
 import Error404Page from 'Pages/Error404Page';
 // ---Components
@@ -27,6 +30,9 @@ function AppContainer() {
       <Switch>
         {/* Utility */}
         <Route exact path="/master/utilidadDia" component={UtilityDay} />
+        <Route exact path="/master/utilidadSemana" component={UtilityWeek} />
+        <Route exact path="/master/utilidadMes" component={UtilityMonth} />
+        <Route exact path="/master/utilidadAño" component={UtilityYear} />
         {/* Products */}
         <Route exact path="/master" component={ToHomeMaster} />
         <Route exact path="/master/tienda" component={HomePageMaster} />

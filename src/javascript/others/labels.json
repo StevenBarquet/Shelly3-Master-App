@@ -61,6 +61,15 @@
     },
     "UtilityDayPage": {
       "title": "Utilidades del día"
+    },
+    "UtilityWeekPage": {
+      "title": "Utilidades de la semana"
+    },
+    "UtilityMonthPage": {
+      "title": "Utilidades del mes"
+    },
+    "UtilityYearPage": {
+      "title": "Utilidades del año"
     }
   },
   "catalogos":{

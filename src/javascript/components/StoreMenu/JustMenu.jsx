@@ -33,7 +33,12 @@ function JustMenu(props) {
     orders: ['/master/adminOrders', '/master/editOrder', '/master/storeCart'],
     home: ['/master/publicHome'],
     shipping: ['/master/shippingMethods'],
-    utility: ['/master/utilidadDia']
+    utility: [
+      '/master/utilidadDia',
+      '/master/utilidadSemana',
+      '/master/utilidadMes',
+      '/master/utilidadAño'
+    ]
   };
 
   const keys = {
@@ -46,7 +51,10 @@ function JustMenu(props) {
     [routes.orders[0]]: 'orderMenu',
     [routes.orders[1]]: 'orderMenu',
     [routes.orders[2]]: 'orderMenu',
-    [routes.utility[0]]: 'utilityMenu'
+    [routes.utility[0]]: 'utilityMenu',
+    [routes.utility[1]]: 'utilityMenu',
+    [routes.utility[2]]: 'utilityMenu',
+    [routes.utility[3]]: 'utilityMenu'
   };
 
   if (!reRender)
@@ -80,10 +88,24 @@ function JustMenu(props) {
             >
               Hoy
             </Menu.Item>
-            <Menu.Item key="sub1-2">Semanal</Menu.Item>
-            <Menu.Item key="sub1-3">Mensual</Menu.Item>
-            <Menu.Item key="sub1-4">Anual</Menu.Item>
-            <Menu.Item key="sub1-5">Historico</Menu.Item>
+            <Menu.Item
+              key={routes.utility[1]}
+              onClick={() => goToRoute(routes.utility[1])}
+            >
+              Semanal
+            </Menu.Item>
+            <Menu.Item
+              key={routes.utility[2]}
+              onClick={() => goToRoute(routes.utility[2])}
+            >
+              Mensual
+            </Menu.Item>
+            <Menu.Item
+              key={routes.utility[3]}
+              onClick={() => goToRoute(routes.utility[3])}
+            >
+              Anual
+            </Menu.Item>
           </SubMenu>
           <Menu.Item
             icon={<DesktopOutlined />}
