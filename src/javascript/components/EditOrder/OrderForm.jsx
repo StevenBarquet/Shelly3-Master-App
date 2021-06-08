@@ -1,11 +1,7 @@
 // ---Dependencys
 import React from 'react';
 import { Form, Row, Col, Input, Select, InputNumber, Radio } from 'antd';
-import {
-  SendOutlined,
-  VerticalAlignBottomOutlined,
-  VerticalAlignTopOutlined
-} from '@ant-design/icons';
+import { SendOutlined } from '@ant-design/icons';
 // ---Util Comps
 import ButtonMlg from 'Utils/ButtonMlg';
 import mapOptions from 'Utils/mapOptions';
@@ -13,7 +9,7 @@ import FitImg from 'Utils/FitImg';
 // ---Others
 import { priceFormat } from 'Others/otherMethods';
 import { dateMongoToClient } from 'Others/dateMethods';
-import { catalogos } from 'Others/labels.json';
+import { catalogos, appData } from 'Others/store-data.json';
 
 // --- AUX COMPONENTS
 function JustData(props) {
@@ -301,7 +297,7 @@ function OrderForm(props) {
                 <JoiSelectInput
                   label="Responsable de Venta"
                   name="responsableVenta"
-                  options={catalogos.responsables}
+                  options={appData.responsables}
                   validation={validation}
                 />
               </Col>
@@ -309,7 +305,7 @@ function OrderForm(props) {
                 <JoiSelectInput
                   label="Estatus"
                   name="estatus"
-                  options={catalogos.estatus}
+                  options={catalogos.ordenes.estatus}
                   validation={validation}
                 />
               </Col>

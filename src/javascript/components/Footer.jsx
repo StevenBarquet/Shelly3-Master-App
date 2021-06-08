@@ -8,13 +8,13 @@ import {
   InstagramOutlined
 } from '@ant-design/icons';
 // ---Others
-import { title, phoneStr, facebookUrl, instagramUrl } from 'Others/labels.json';
-
-const { main, sub } = title;
+import { ownerData } from 'Others/store-data.json';
 
 // ------------------------------------------ COMPONENT-----------------------------------------
 const Footer = withRouter(props => {
   const current = props.location.pathname;
+  const { title, phoneStr, facebookUrl, instagramUrl } = ownerData;
+  const { main, sub } = title;
   const isAdmin = new RegExp('^[/][m][a][s][t][e][r]');
 
   if (isAdmin.test(current)) {

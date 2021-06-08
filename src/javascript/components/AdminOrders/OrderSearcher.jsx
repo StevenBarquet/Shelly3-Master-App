@@ -12,7 +12,7 @@ import {
 import ButtonMlg from 'Utils/ButtonMlg';
 import mapOptions from 'Utils/mapOptions';
 // ---Other
-import { catalogos } from 'Others/labels.json';
+import { catalogos } from 'Others/store-data.json';
 import { validate } from './OrderSearcherJoi';
 
 // ---AUX COMPONENTS
@@ -174,7 +174,7 @@ function OrderSearcher(props) {
                 <FiltersSelect
                   name="ventaTipo"
                   label="Tipo de venta"
-                  options={catalogos.ventaTipoFiltro}
+                  options={catalogos.ordenes.ventaTipoFiltro}
                 />
               </Col>
               <Col
@@ -185,14 +185,14 @@ function OrderSearcher(props) {
                 <FiltersSelect
                   name="metodoPago"
                   label="Método de pago"
-                  options={catalogos.metodoPagoFiltro}
+                  options={catalogos.ordenes.metodoPagoFiltro}
                 />
               </Col>
               <Col xs={11} sm={11} lg={7}>
                 <FiltersSelect
                   name="estatus"
                   label="Estatus"
-                  options={catalogos.estatusFiltro}
+                  options={catalogos.ordenes.estatusFiltro}
                 />
               </Col>
               <Col xs={24} sm={24} lg={12}>

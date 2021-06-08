@@ -18,7 +18,7 @@ import ProductSearcher from 'Comp/AdminProducts/ProductSearcher';
 // ---Util Comps
 import mapOptions from 'Utils/mapOptions';
 // ---Others
-import { catalogos } from 'Others/labels.json';
+import { appData } from 'Others/store-data.json';
 import { removeNullProperties } from 'Others/otherMethods';
 // --Request
 import { asyncHandler, testError } from 'Others/requestHandlers.js';
@@ -174,7 +174,7 @@ function SearchCont(props) {
     <Row>
       <Col xs={24} sm={24} lg={6}>
         <ResponsableSelect
-          options={catalogos.responsables}
+          options={appData.responsables}
           handleResponsable={handleResponsable}
           responsableVenta={responsableVenta}
         />

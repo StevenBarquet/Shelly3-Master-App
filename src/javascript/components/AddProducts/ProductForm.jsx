@@ -6,7 +6,7 @@ import { EditOutlined, PlusOutlined, ClearOutlined } from '@ant-design/icons';
 import ButtonMlg from 'Utils/ButtonMlg';
 import mapOptions from 'Utils/mapOptions';
 // ---Others
-import { productos } from 'Others/store-data.json';
+import { catalogos } from 'Others/store-data.json';
 
 // --------------------------------------- FORM COMPONENT --------------------------------------
 function ProductForm(props) {
@@ -43,58 +43,8 @@ function ProductForm(props) {
   } = validation;
   const genderOptions = [
     {
-      label: 'Male',
-      value: 'Male'
-    },
-    {
-      label: 'Female',
-      value: 'Female'
-    },
-    {
       label: 'Unknown',
       value: 'unknown'
-    }
-  ];
-  const descuentoOptions = [
-    {
-      label: '0%',
-      value: 0
-    },
-    {
-      label: '10%',
-      value: 10
-    },
-    {
-      label: '20%',
-      value: 20
-    },
-    {
-      label: '30%',
-      value: 30
-    },
-    {
-      label: '40%',
-      value: 40
-    },
-    {
-      label: '50%',
-      value: 50
-    },
-    {
-      label: '60%',
-      value: 60
-    },
-    {
-      label: '70%',
-      value: 70
-    },
-    {
-      label: '80%',
-      value: 80
-    },
-    {
-      label: '90%',
-      value: 90
     }
   ];
 
@@ -242,7 +192,9 @@ function ProductForm(props) {
               help={descuento.status === 'error' ? descuento.message : null}
               rules={[{ required: false, message: descuento.message }]}
             >
-              <Select>{mapOptions(descuentoOptions)}</Select>
+              <Select>
+                {mapOptions(catalogos.productos.descuentoOptions)}
+              </Select>
             </Form.Item>
           </Col>
           <Col xs={24} sm={24} lg={12}>
@@ -253,7 +205,7 @@ function ProductForm(props) {
               help={categoria.status === 'error' ? categoria.message : null}
               rules={[{ required: false, message: categoria.message }]}
             >
-              <Select>{mapOptions(productos.categorias)}</Select>
+              <Select>{mapOptions(catalogos.productos.categorias)}</Select>
             </Form.Item>
           </Col>
           <Col xs={24} sm={24} lg={12}>

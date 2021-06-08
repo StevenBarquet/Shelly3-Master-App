@@ -12,7 +12,7 @@ import {
 import ButtonMlg from 'Utils/ButtonMlg';
 import mapOptions from 'Utils/mapOptions';
 // ---Other
-import { productos } from 'Others/store-data.json';
+import { catalogos } from 'Others/store-data.json';
 
 // ---AUX COMPONENTS
 function SubmitButton(props) {
@@ -215,7 +215,9 @@ function ProductSearcher(props) {
                   name={['filters', 'categoria']}
                   label="Categoria"
                 >
-                  <Select>{mapOptions(productos.categoriasFiltro)}</Select>
+                  <Select>
+                    {mapOptions(catalogos.productos.categoriasFiltro)}
+                  </Select>
                 </Form.Item>
               </Col>
               {/* --Sort-- */}

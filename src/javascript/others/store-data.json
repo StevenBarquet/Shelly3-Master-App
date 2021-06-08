@@ -1,205 +1,315 @@
 {
-  "productos": {
-    "categoriasFiltro": [
+  "ownerData": {
+    "domain": "shelly-store.com",
+    "title": {
+      "main": "Shelly",
+      "sub": "store",
+      "shortStoreName": "Shelly"
+    },
+    "phoneStr": "55 3370 0670",
+    "phoneMain": 5533700670,
+    "facebookUrl": "https://www.facebook.com/SHELLYstore.boot",
+    "contactLink": "http://m.me/SHELLYstore.boot",
+    "instagramUrl": "https://www.instagram.com/",
+    "aclaracionPedido": "https://www.facebook.com/"
+  },
+  "appData":{
+    "responsables": [
       {
-        "label": "Todas",
-        "value": null
+        "label": "Kros",
+        "value": "Kros"
       },
       {
-        "label": "Laptops",
-        "value": "Laptops"
+        "label": "Pedrito",
+        "value": "Pedrito"
       },
       {
-        "label": "Mobil",
-        "value": "Mobil"
+        "label": "El Angel",
+        "value": "El Angel"
       },
       {
-        "label": "Gaming",
-        "value": "Gaming"
-      },
-      {
-        "label": "Almacenamiento",
-        "value": "Almacenamiento"
-      },
-      {
-        "label": "Accesorios cool",
-        "value": "Accesorios cool"
-      },
-      {
-        "label": "Redes",
-        "value": "Redes"
-      },
-      {
-        "label": "Para geeks",
-        "value": "Para geeks"
-      },
-      {
-        "label": "Tu vehículo",
-        "value": "Tu vehículo"
-      },
-      {
-        "label": "Cosas que no necesitas",
-        "value": "Cosas que no necesitas"
+        "label": "Viego",
+        "value": "Viego"
       }
     ],
-    "categorias": [
-      {
-        "label": "Videojuegos",
-        "value": "Videojuegos"
+    "pagesData": {
+      "Home": {
+        "title": "Inicio"
       },
-      {
-        "label": "Dulces",
-        "value": "Dulces"
+      "Productos": {
+        "title": "Productos"
       },
-      {
-        "label": "Computo",
-        "value": "Computo"
+      "Rastreo": {
+        "title": "Rastreo"
       },
-      {
-        "label": "Celular",
-        "value": "Celular"
+      "Orden": {
+        "title": "Ordenar pedido"
       },
-      {
-        "label": "Sublimado",
-        "value": "Sublimado"
+      "SuccessOrder": {
+        "title": "Exitoso"
+      },
+      "Login": {
+        "title": "Login"
+      },
+      "LogOut": {
+        "title": "Adios..."
+      },
+      "HomeMaster": {
+        "title": "Inicio Administrador"
+      },
+      "ToHomeMasterPage": {
+        "title": "Redirigiendo..."
+      },
+      "AdminProductsPage": {
+        "title": "Administrador de productos"
+      },
+      "AddProductsPage": {
+        "title": "Agregar productos"
+      },
+      "AdminPublicHomePage": {
+        "title": "Administrador del home page"
+      },
+      "ProductsInfoPage": {
+        "title": "Consulta del producto"
+      },
+      "StoreCartPage": {
+        "title": "Venta de mostrador"
+      },
+      "AdminOrdersPage": {
+        "title": "Administrador de ordenes"
+      },
+      "EditOrdersPage": {
+        "title": "Editar de ordenes"
+      },
+      "UtilityDayPage": {
+        "title": "Utilidades del día"
+      },
+      "UtilityWeekPage": {
+        "title": "Utilidades de la semana"
+      },
+      "UtilityMonthPage": {
+        "title": "Utilidades del mes"
+      },
+      "UtilityYearPage": {
+        "title": "Utilidades del año"
       }
-    ],
-    "origen": [
-      {
-        "label": "local",
-        "value": "local"
-      },
-      {
-        "label": "Mercado Libre",
-        "value": "Mercado Libre"
-      },
-      {
-        "label": "Mercado Libre Propio",
-        "value": "Mercado Libre Propio"
-      }
-    ],
-    "garantias": [
-      {
-        "label": "1 año",
-        "value": "1 año"
-      },
-      {
-        "label": "3 meses",
-        "value": "3 meses"
-      },
-      {
-        "label": "3 meses + la incluida por el fabricante",
-        "value": "3 meses + la incluida por el fabricante"
-      },
-      {
-        "label": "1 mes + la incluida por el fabricante",
-        "value": "1 mes + la incluida por el fabricante"
-      },
-      {
-        "label": "1 mes + 11 meses por el fabricante",
-        "value": "1 mes + 11 meses por el fabricante"
-      },
-      {
-        "label": "1 mes + 5 meses por el fabricante",
-        "value": "1 mes + 5 meses por el fabricante"
-      },
-      {
-        "label": "1 mes + 2 meses por el fabricante",
-        "value": "1 mes + 2 meses por el fabricante"
-      },
-      {
-        "label": "15 días + 15 días por el fabricante",
-        "value": "15 días + 15 días por el fabricante"
-      },
-      {
-        "label": "15 días + la incluida por el fabricante",
-        "value": "15 días + la incluida por el fabricante"
-      },
-      {
-        "label": "12 meses por el fabricante",
-        "value": "12 meses por el fabricante"
-      },
-      {
-        "label": "6 meses por el fabricante",
-        "value": "6 meses por el fabricante"
-      },
-      {
-        "label": "3 meses por el fabricante",
-        "value": "3 meses por el fabricante"
-      },
-      {
-        "label": "1 meses por el fabricante",
-        "value": "1 meses por el fabricante"
-      },
-      {
-        "label": "La incluida por el fabricante",
-        "value": "La incluida por el fabricante"
-      },
-      {
-        "label": "No incluida",
-        "value": "No incluida"
-      }
-    ],
-    "tipos": [
-      {
-        "label": "normal",
-        "value": "normal"
-      },
-      {
-        "label": "Nueva",
-        "value": "Nuevo"
-      },
-      {
-        "label": "Touch",
-        "value": "Touch"
-      },
-      {
-        "label": "Ultra Small",
-        "value": "Ultra Small"
-      },
-      {
-        "label": "Gaming",
-        "value": "Gaming"
-      }
-    ],
-    "promos": [
-      {
-        "label": "Ninguna",
-        "value": "normal"
-      },
-      {
-        "label": "-10%",
-        "value": "-10%"
-      },
-      {
-        "label": "-20%",
-        "value": "-20%"
-      },
-      {
-        "label": "-30%",
-        "value": "-30%"
-      },
-      {
-        "label": "-40%",
-        "value": "-40%"
-      },
-      {
-        "label": "-50%",
-        "value": "-50%"
-      },
-      {
-        "label": "-60%",
-        "value": "-60%"
-      },
-      {
-        "label": "-70%",
-        "value": "-70%"
-      },
-      {
-        "label": "-80%",
-        "value": "-80%"
-      }
-    ]
+    }
+  },
+  "catalogos":{
+    "productos": {
+      "categoriasFiltro": [
+        {
+          "label": "Todas",
+          "value": null
+        },
+        {
+          "label": "Laptops",
+          "value": "Laptops"
+        },
+        {
+          "label": "Mobil",
+          "value": "Mobil"
+        },
+        {
+          "label": "Gaming",
+          "value": "Gaming"
+        },
+        {
+          "label": "Almacenamiento",
+          "value": "Almacenamiento"
+        },
+        {
+          "label": "Accesorios cool",
+          "value": "Accesorios cool"
+        },
+        {
+          "label": "Redes",
+          "value": "Redes"
+        },
+        {
+          "label": "Para geeks",
+          "value": "Para geeks"
+        },
+        {
+          "label": "Tu vehículo",
+          "value": "Tu vehículo"
+        },
+        {
+          "label": "Cosas que no necesitas",
+          "value": "Cosas que no necesitas"
+        }
+      ],
+      "categorias": [
+        {
+          "label": "Videojuegos",
+          "value": "Videojuegos"
+        },
+        {
+          "label": "Dulces",
+          "value": "Dulces"
+        },
+        {
+          "label": "Computo",
+          "value": "Computo"
+        },
+        {
+          "label": "Celular",
+          "value": "Celular"
+        },
+        {
+          "label": "Sublimado",
+          "value": "Sublimado"
+        }
+      ],
+      "descuentoOptions": [
+        {
+          "label": "0%",
+          "value": 0
+        },
+        {
+          "label": "10%",
+          "value": 10
+        },
+        {
+          "label": "20%",
+          "value": 20
+        },
+        {
+          "label": "30%",
+          "value": 30
+        },
+        {
+          "label": "40%",
+          "value": 40
+        },
+        {
+          "label": "50%",
+          "value": 50
+        },
+        {
+          "label": "60%",
+          "value": 60
+        },
+        {
+          "label": "70%",
+          "value": 70
+        },
+        {
+          "label": "80%",
+          "value": 80
+        },
+        {
+          "label": "90%",
+          "value": 90
+        }
+      ]
+    },
+    "ordenes":{
+      "ventaTipoFiltro": [
+        {
+          "label": "Sin filtrar",
+          "value": null
+        },
+        {
+          "label": "local 133",
+          "value": "local 133"
+        },
+        {
+          "label": "Tienda online",
+          "value": "Tienda online"
+        },
+        {
+          "label": "Facebook",
+          "value": "Facebook"
+        },
+        {
+          "label": "Mercado Libre",
+          "value": "Mercado Libre"
+        }],
+      "metodoPagoFiltro": [
+        {
+          "label": "Sin filtrar",
+          "value": null
+        },
+        {
+          "label": "Efectivo",
+          "value": "Efectivo"
+        },
+        {
+          "label": "Tarjeta",
+          "value": "Tarjeta"
+        },
+        {
+          "label": "Transferencia",
+          "value": "Transferencia"
+        }],
+      "estatusFiltro": [
+        {
+          "label": "Sin filtrar",
+          "value": null
+        },
+        {
+          "label": "Iniciado",
+          "value": "Iniciado"
+        },
+        {
+          "label": "En revision de pago",
+          "value": "En revision de pago"
+        },
+        {
+          "label": "Pagado",
+          "value": "Pagado"
+        },
+        {
+          "label": "En proceso de envío",
+          "value": "En proceso de envío"
+        },
+        {
+          "label": "Enviado",
+          "value": "Enviado"
+        },
+        {
+          "label": "Finalizado",
+          "value": "Finalizado"
+        },
+        {
+          "label": "Cancelado",
+          "value": "Cancelado"
+        },
+        {
+          "label": "Entrega a convenir programada",
+          "value": "Entrega a convenir programada"
+        }],
+      "estatus": [
+        {
+          "label": "Iniciado",
+          "value": "Iniciado"
+        },
+        {
+          "label": "En revision de pago",
+          "value": "En revision de pago"
+        },
+        {
+          "label": "Pagado",
+          "value": "Pagado"
+        },
+        {
+          "label": "En proceso de envío",
+          "value": "En proceso de envío"
+        },
+        {
+          "label": "Enviado",
+          "value": "Enviado"
+        },
+        {
+          "label": "Finalizado",
+          "value": "Finalizado"
+        },
+        {
+          "label": "Entrega a convenir programada",
+          "value": "Entrega a convenir programada"
+        }]
+    }
   },
   "estadosMex": [
     { "label": "AGUASCALIENTES", "value": "AGUASCALIENTES" },
