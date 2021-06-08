@@ -1,2 +1,2 @@
 node_modules
-/src/javascript/others/store-data.json
+src/javascript/others/*.json
