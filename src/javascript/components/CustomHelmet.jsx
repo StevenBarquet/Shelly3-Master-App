@@ -2,11 +2,12 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 // ---Others
-import { ownerData } from 'Others/store-data.json';
+import { appData, ownerData } from 'Others/store-data.json';
 // ------------------------------------------ COMPONENT-----------------------------------------
 const CustomHelmet = props => {
   const { pageName } = props;
-  const { title, pagesData } = ownerData;
+  const { pagesData } = appData;
+  const { title } = ownerData;
   const name = pagesData[pageName].title;
   return (
     <Helmet>
