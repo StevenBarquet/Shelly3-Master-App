@@ -13,7 +13,7 @@ import AdminMenu from 'Comp/NavBar/AdminMenu';
 import ClientMenu from 'Comp/NavBar/ClientMenu';
 import GlobalComponents from 'Comp/NavBar/GlobalComponents';
 // ---Others
-import logo from 'Images/logoStoreL.png';
+import logo from 'Images/prod/logoStoreL.png';
 import isMovilDetector from 'Others/isMovilDetector';
 
 // ------------------------------------------ COMPONENT-----------------------------------------
