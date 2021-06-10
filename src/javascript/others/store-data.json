@@ -1,0 +1,332 @@
+{
+  "ownerData": {
+    "domain": "shelly-store.com",
+    "title": {
+      "main": "Shelly",
+      "sub": "store",
+      "shortStoreName": "Shelly"
+    },
+    "phoneStr": "55 3370 0670",
+    "phoneMain": 5533700670,
+    "facebookUrl": "https://www.facebook.com/SHELLYstore.boot",
+    "contactLink": "http://m.me/SHELLYstore.boot",
+    "instagramUrl": "https://www.instagram.com/",
+    "aclaracionPedido": "https://www.facebook.com/"
+  },
+  "appData":{
+    "responsables": [
+      {
+        "label": "Kros",
+        "value": "Kros"
+      },
+      {
+        "label": "Pedrito",
+        "value": "Pedrito"
+      },
+      {
+        "label": "El Angel",
+        "value": "El Angel"
+      },
+      {
+        "label": "Viego",
+        "value": "Viego"
+      }
+    ],
+    "pagesData": {
+      "Home": {
+        "title": "Inicio"
+      },
+      "Productos": {
+        "title": "Productos"
+      },
+      "Rastreo": {
+        "title": "Rastreo"
+      },
+      "Orden": {
+        "title": "Ordenar pedido"
+      },
+      "SuccessOrder": {
+        "title": "Exitoso"
+      },
+      "Login": {
+        "title": "Login"
+      },
+      "LogOut": {
+        "title": "Adios..."
+      },
+      "HomeMaster": {
+        "title": "Inicio Administrador"
+      },
+      "ToHomeMasterPage": {
+        "title": "Redirigiendo..."
+      },
+      "AdminProductsPage": {
+        "title": "Administrador de productos"
+      },
+      "AddProductsPage": {
+        "title": "Agregar productos"
+      },
+      "AdminPublicHomePage": {
+        "title": "Administrador del home page"
+      },
+      "ProductsInfoPage": {
+        "title": "Consulta del producto"
+      },
+      "StoreCartPage": {
+        "title": "Venta de mostrador"
+      },
+      "AdminOrdersPage": {
+        "title": "Administrador de ordenes"
+      },
+      "EditOrdersPage": {
+        "title": "Editar de ordenes"
+      },
+      "UtilityDayPage": {
+        "title": "Utilidades del día"
+      },
+      "UtilityWeekPage": {
+        "title": "Utilidades de la semana"
+      },
+      "UtilityMonthPage": {
+        "title": "Utilidades del mes"
+      },
+      "UtilityYearPage": {
+        "title": "Utilidades del año"
+      }
+    }
+  },
+  "catalogos":{
+    "productos": {
+      "categoriasFiltro": [
+        {
+          "label": "Todas",
+          "value": null
+        },
+        {
+          "label": "Videojuegos",
+          "value": "Videojuegos"
+        },
+        {
+          "label": "Dulces",
+          "value": "Dulces"
+        },
+        {
+          "label": "Computo",
+          "value": "Computo"
+        },
+        {
+          "label": "Celular",
+          "value": "Celular"
+        },
+        {
+          "label": "Sublimado",
+          "value": "Sublimado"
+        }
+      ],
+      "categorias": [
+        {
+          "label": "Videojuegos",
+          "value": "Videojuegos"
+        },
+        {
+          "label": "Dulces",
+          "value": "Dulces"
+        },
+        {
+          "label": "Computo",
+          "value": "Computo"
+        },
+        {
+          "label": "Celular",
+          "value": "Celular"
+        },
+        {
+          "label": "Sublimado",
+          "value": "Sublimado"
+        }
+      ],
+      "descuentoOptions": [
+        {
+          "label": "0%",
+          "value": 0
+        },
+        {
+          "label": "10%",
+          "value": 10
+        },
+        {
+          "label": "20%",
+          "value": 20
+        },
+        {
+          "label": "30%",
+          "value": 30
+        },
+        {
+          "label": "40%",
+          "value": 40
+        },
+        {
+          "label": "50%",
+          "value": 50
+        },
+        {
+          "label": "60%",
+          "value": 60
+        },
+        {
+          "label": "70%",
+          "value": 70
+        },
+        {
+          "label": "80%",
+          "value": 80
+        },
+        {
+          "label": "90%",
+          "value": 90
+        }
+      ]
+    },
+    "ordenes":{
+      "ventaTipoFiltro": [
+        {
+          "label": "Sin filtrar",
+          "value": null
+        },
+        {
+          "label": "local 133",
+          "value": "local 133"
+        },
+        {
+          "label": "Tienda online",
+          "value": "Tienda online"
+        },
+        {
+          "label": "Facebook",
+          "value": "Facebook"
+        },
+        {
+          "label": "Mercado Libre",
+          "value": "Mercado Libre"
+        }],
+      "metodoPagoFiltro": [
+        {
+          "label": "Sin filtrar",
+          "value": null
+        },
+        {
+          "label": "Efectivo",
+          "value": "Efectivo"
+        },
+        {
+          "label": "Tarjeta",
+          "value": "Tarjeta"
+        },
+        {
+          "label": "Transferencia",
+          "value": "Transferencia"
+        }],
+      "estatusFiltro": [
+        {
+          "label": "Sin filtrar",
+          "value": null
+        },
+        {
+          "label": "Iniciado",
+          "value": "Iniciado"
+        },
+        {
+          "label": "En revision de pago",
+          "value": "En revision de pago"
+        },
+        {
+          "label": "Pagado",
+          "value": "Pagado"
+        },
+        {
+          "label": "En proceso de envío",
+          "value": "En proceso de envío"
+        },
+        {
+          "label": "Enviado",
+          "value": "Enviado"
+        },
+        {
+          "label": "Finalizado",
+          "value": "Finalizado"
+        },
+        {
+          "label": "Cancelado",
+          "value": "Cancelado"
+        },
+        {
+          "label": "Entrega a convenir programada",
+          "value": "Entrega a convenir programada"
+        }],
+      "estatus": [
+        {
+          "label": "Iniciado",
+          "value": "Iniciado"
+        },
+        {
+          "label": "En revision de pago",
+          "value": "En revision de pago"
+        },
+        {
+          "label": "Pagado",
+          "value": "Pagado"
+        },
+        {
+          "label": "En proceso de envío",
+          "value": "En proceso de envío"
+        },
+        {
+          "label": "Enviado",
+          "value": "Enviado"
+        },
+        {
+          "label": "Finalizado",
+          "value": "Finalizado"
+        },
+        {
+          "label": "Entrega a convenir programada",
+          "value": "Entrega a convenir programada"
+        }]
+    }
+  },
+  "estadosMex": [
+    { "label": "AGUASCALIENTES", "value": "AGUASCALIENTES" },
+    { "label": "BAJA CALIFORNIA",  "value": "BAJA CALIFORNIA" },
+    { "label": "BAJA CALIFORNIA SUR", "value": "BAJA CALIFORNIA SUR" },
+    { "label": "CHIHUAHUA", "value": "CHIHUAHUA" },
+    { "label": "CHIAPAS", "value": "CHIAPAS" },
+    { "label": "CAMPECHE", "value": "CAMPECHE" },
+    { "label": "CIUDAD DE MEXICO", "value": "CIUDAD DE MEXICO" },
+    { "label": "COAHUILA", "value": "COAHUILA" },
+    { "label": "COLIMA", "value": "COLIMA" },
+    { "label": "DURANGO", "value": "DURANGO" },
+    { "label": "GUERRERO", "value": "GUERRERO" },
+    { "label": "GUANAJUATO", "value": "GUANAJUATO" },
+    { "label": "HIDALGO", "value": "HIDALGO" },
+    { "label": "JALISCO", "value": "JALISCO" },
+    { "label": "MICHOACAN", "value": "MICHOACAN" },
+    { "label": "ESTADO DE MEXICO", "value": "ESTADO DE MEXICO" },
+    { "label": "MORELOS", "value": "MORELOS" },
+    { "label": "NAYARIT", "value": "NAYARIT" },
+    { "label": "NUEVO LEON",  "value": "NUEVO LEON" },
+    { "label": "OAXACA", "value": "OAXACA" },
+    { "label": "PUEBLA", "value": "PUEBLA" },
+    { "label": "QUINTANA ROO",  "value": "QUINTANA ROO" },
+    { "label": "QUERETARO", "value": "QUERETARO" },
+    { "label": "SINALOA", "value": "SINALOA" },
+    { "label": "SAN LUIS POTOSI", "value": "SAN LUIS POTOSI" },
+    { "label": "SONORA", "value": "SONORA" },
+    { "label": "TABASCO", "value": "TABASCO" },
+    { "label": "TLAXCALA", "value": "TLAXCALA" },
+    { "label": "TAMAULIPAS", "value": "TAMAULIPAS" },
+    { "label": "VERACRUZ", "value": "VERACRUZ" },
+    { "label": "YUCATAN", "value": "YUCATAN" },
+    { "label": "ZACATECAS", "value": "ZACATECAS" } 
+  ]
+}
