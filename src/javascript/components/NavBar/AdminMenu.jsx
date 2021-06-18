@@ -69,7 +69,7 @@ function JustButtons(props) {
               isStore.test(currentPath) ? 'nav-btn nav-border' : 'nav-btn'
             }
           >
-            Mi Tienda
+            Mi Store
           </div>
         </Link>
       </Col>
