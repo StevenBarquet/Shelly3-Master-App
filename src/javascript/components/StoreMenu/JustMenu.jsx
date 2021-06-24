@@ -38,6 +38,12 @@ function JustMenu(props) {
       '/master/utilidadSemana',
       '/master/utilidadMes',
       '/master/utilidadAño'
+    ],
+    users: [
+      '/master/editProfile',
+      '/master/adminUsers',
+      '/master/editUser',
+      '/master/createUser'
     ]
   };
 
@@ -54,7 +60,9 @@ function JustMenu(props) {
     [routes.utility[0]]: 'utilityMenu',
     [routes.utility[1]]: 'utilityMenu',
     [routes.utility[2]]: 'utilityMenu',
-    [routes.utility[3]]: 'utilityMenu'
+    [routes.utility[3]]: 'utilityMenu',
+    [routes.users[0]]: 'usersMenu',
+    [routes.users[1]]: 'usersMenu'
   };
 
   if (!reRender)
@@ -164,22 +172,30 @@ function JustMenu(props) {
             >
               Vender en mostrador
             </Menu.Item>
-            <Menu.Item key="sub4-3">Generar orden</Menu.Item>
+            <Menu.Item disabled key="sub4-3">
+              Generar orden
+            </Menu.Item>
             <Menu.Item key="sub4-4">Seguimiento de ordenes</Menu.Item>
           </SubMenu>
           <SubMenu
-            key="5"
+            key="usersMenu"
             icon={<TeamOutlined />}
             title="Cuentas de administracion"
           >
-            <SubMenu key="sub5-1" title="Crear cuenta">
-              <Menu.Item key="sub5-1-1">Administrador</Menu.Item>
-              <Menu.Item key="sub5-1-2">Master</Menu.Item>
-            </SubMenu>
-            <SubMenu key="sub5-2" title="Administrar cuentas">
-              <Menu.Item key="sub5-2-1">Administrador</Menu.Item>
-              <Menu.Item key="sub5-2-2">Master</Menu.Item>
-            </SubMenu>
+            <Menu.Item
+              key={routes.users[0]}
+              onClick={() => goToRoute(routes.users[0])}
+            >
+              Editar mi perfil
+            </Menu.Item>
+            <Menu.Item
+              key={routes.users[1]}
+              onClick={() => goToRoute(routes.users[1])}
+            >
+              Administrar cuentas
+            </Menu.Item>
+            <Menu.Item key="sub5-3">Modificar cuenta</Menu.Item>
+            <Menu.Item key="sub5-4">Registrar cuenta nueva</Menu.Item>
           </SubMenu>
           <Menu.Item
             icon={<BarChartOutlined />}

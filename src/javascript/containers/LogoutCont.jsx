@@ -2,19 +2,28 @@
 // ---Dependencys
 import React, { useEffect } from 'react';
 import { SettingFilled } from '@ant-design/icons';
-
-import { withRouter } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
+// --Request
+import { asyncHandler, testError } from 'Others/requestHandlers.js';
+import { logOut } from 'Others/peticiones.js';
 
 // ------------------------------------------ COMPONENT-----------------------------------------
-const MasterLogoutCont = withRouter(props => {
+function LogoutCont() {
+  const history = useHistory();
   useEffect(onLogout, []);
 
   function onLogout() {
-    const { history } = props;
     setTimeout(() => {
-      localStorage.setItem('htFBgj3nK6QwY5hm', '');
-      history.push('/');
+      logOutRequest();
     }, 800);
+  }
+
+  function logOutRequest() {
+    asyncHandler(logOut, onSuccessLogout, testError);
+  }
+
+  function onSuccessLogout() {
+    history.push('/master/login');
   }
 
   return (
@@ -23,6 +32,6 @@ const MasterLogoutCont = withRouter(props => {
       <SettingFilled spin />
     </div>
   );
-});
+}
 
-export default MasterLogoutCont;
+export default LogoutCont;

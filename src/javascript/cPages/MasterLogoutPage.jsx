@@ -1,7 +1,7 @@
 // ---Dependencys
 import React from 'react';
 // ---Components
-import MasterLogoutCont from 'Cont/MasterLogoutCont';
+import LogoutCont from 'Cont/LogoutCont';
 // ---Handle html headers
 import CustomHelmet from 'Comp/CustomHelmet';
 
@@ -10,7 +10,7 @@ const MasterLogoutPage = () => {
   return (
     <React.Fragment>
       <CustomHelmet pageName="LogOut" />
-      <MasterLogoutCont />
+      <LogoutCont />
     </React.Fragment>
   );
 };

@@ -1,18 +1,18 @@
 // ---Dependencys
 import React from 'react';
 // ---Components
-import LoginCont from 'Cont/LoginCont';
+import AdminOrders from 'Cont/AdminOrders';
 // ---Handle html headers
 import CustomHelmet from 'Comp/CustomHelmet';
 
 // ------------------------------------------ COMPONENT-----------------------------------------
-const MasterLoginPage = () => {
+const AdminUsersPage = () => {
   return (
     <React.Fragment>
-      <CustomHelmet pageName="Login" />
-      <LoginCont />
+      <CustomHelmet pageName="AdminUsersPage" />
+      <AdminOrders />
     </React.Fragment>
   );
 };
 
-export default MasterLoginPage;
+export default AdminUsersPage;

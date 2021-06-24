@@ -92,6 +92,9 @@
       },
       "UtilityYearPage": {
         "title": "Utilidades del año"
+      },
+      "AdminUsersPage": {
+        "title": "Administrar cuentas"
       }
     }
   },

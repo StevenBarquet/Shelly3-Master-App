@@ -17,6 +17,8 @@ import UtilityDay from 'Pages/UtilityDayPage';
 import UtilityWeek from 'Pages/UtilityWeekPage';
 import UtilityMonth from 'Pages/UtilityMonthPage';
 import UtilityYear from 'Pages/UtilityYearPage';
+import AdminUsers from 'Pages/AdminUsersPage';
+
 // ---Pages Others
 import Error404Page from 'Pages/Error404Page';
 // ---Components
@@ -59,6 +61,8 @@ function AppContainer() {
           path="/master/editOrder([?0-9a-zA-Z]*)"
           component={EditOrders}
         />
+        {/* Users */}
+        <Route exact path="/master/adminUsers" component={AdminUsers} />
         {/* Others */}
         <Route exact path="/master/publicHome" component={AdminPublicHome} />
         <Route exact path="/master/login" component={MasterLogin} />
