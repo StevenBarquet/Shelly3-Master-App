@@ -95,8 +95,109 @@
       },
       "AdminUsersPage": {
         "title": "Administrar cuentas"
+      },
+      "CreateUsersPage": {
+        "title": "Crear/Editar cuentas"
       }
-    }
+    },
+    "menuRoutes": [
+      {
+        "route": "/master/utilidadDia",
+        "routeName": "utilidadDia",
+        "routeLabel": "Utilidad hoy",
+        "parentKey": "utilityMenu"
+      },
+      {
+        "route": "/master/utilidadSemana",
+        "routeName": "utilidadSemana",
+        "routeLabel": "Utilidad semanal",
+        "parentKey": "utilityMenu"
+      },
+      {
+        "route": "/master/utilidadMes",
+        "routeName": "utilidadMes",
+        "routeLabel": "Utilidad mensual",
+        "parentKey": "utilityMenu"
+      },
+      {
+        "route": "/master/utilidadAño",
+        "routeName": "utilidadAño",
+        "routeLabel": "Utilidad anual",
+        "parentKey": "utilityMenu"
+      },
+      {
+        "route": "/master/clientHome",
+        "routeName": "clientHome",
+        "routeLabel": "Pagina de inicio",
+        "parentKey": "generalPublicMenu"
+      },
+      {
+        "route": "/master/adminProductos",
+        "routeName": "adminProductos",
+        "routeLabel": "Administrar productos",
+        "parentKey": "/master/tienda"
+      },
+      {
+        "route": "/master/addProductos",
+        "routeName": "addProductos",
+        "routeLabel": "Agregar/Editar productos",
+        "parentKey": "/master/tienda"
+      },
+      {
+        "route": "/master/productInfo",
+        "routeName": "productInfo",
+        "routeLabel": "Consultar un producto",
+        "parentKey": "/master/tienda"
+      },
+      {
+        "route": "/master/adminOrders",
+        "routeName": "adminOrders",
+        "routeLabel": "Administrar ordenes",
+        "parentKey": "orderMenu"
+      },
+      {
+        "route": "/master/editOrder",
+        "routeName": "editOrder",
+        "routeLabel": "Editar ordenes",
+        "parentKey": "orderMenu"
+      },
+      {
+        "route": "/master/storeCart",
+        "routeName": "storeCart",
+        "routeLabel": "Vender en mostrador",
+        "parentKey": "orderMenu"
+      },
+      {
+        "route": "/master/genOrder",
+        "routeName": "genOrder",
+        "routeLabel": "Generar orden",
+        "parentKey": "orderMenu"
+      },
+      {
+        "route": "/master/followUpOrder",
+        "routeName": "followUpOrder",
+        "routeLabel": "Seguimiento de orden",
+        "parentKey": "orderMenu"
+      },
+      {
+        "route": "/master/editProfile",
+        "routeName": "editProfile",
+        "routeLabel": "Editar mi Perfil",
+        "parentKey": "usersMenu"
+      },
+      {
+        "route": "/master/adminUsers",
+        "routeName": "adminUsers",
+        "routeLabel": "Administrar cuentas",
+        "parentKey": "usersMenu"
+      },
+      {
+        "route": "/master/createUser",
+        "routeName": "createUser",
+        "routeLabel": "Crear/editar cuentas",
+        "parentKey": "usersMenu"
+      }
+    ]
   },
   "catalogos":{
     "productos": {

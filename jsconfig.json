@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "module": "es2020",
+    "paths": {
+      "Comp/*": ["./src/javascript/components/*"],
+      "Cont/*": ["./src/javascript/containers/*"],
+      "Pages/*": ["./src/javascript/cPages/*"],
+      "CComps/*": ["./src/javascript/commonComps/*"],
+      "Utils/*": ["./src/javascript/cUtils/*"],
+      "Others/*": ["./src/javascript/others/*"],
+      "Actions/*": ["./src/javascript/reduxActions/*"],
+      "Reducers/*": ["./src/javascript/reduxReducers/*"],
+      "Types/*": ["./src/javascript/reduxTypes/*"],
+      "Images/*": ["./src/images/*"]
+    }
+  }
+}

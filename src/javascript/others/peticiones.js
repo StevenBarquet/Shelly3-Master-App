@@ -212,6 +212,35 @@ export async function logOut() {
   }
 }
 
+export async function getAllUsers() {
+  const endpoint = 'users/all';
+  const url = urlServer + endpoint;
+  try {
+    const respose = await axios(url, {
+      method: 'get',
+      withCredentials: true
+    });
+    return respose;
+  } catch (error) {
+    return error;
+  }
+}
+
+export async function deleteUser(data) {
+  const endpoint = 'users/borrar';
+  const url = urlServer + endpoint;
+  try {
+    const respose = await axios(url, {
+      method: 'delete',
+      data,
+      withCredentials: true
+    });
+    return respose;
+  } catch (error) {
+    return error;
+  }
+}
+
 export async function checkRoute(data) {
   const endpoint = 'users/routeAuth';
   const url = urlServer + endpoint;

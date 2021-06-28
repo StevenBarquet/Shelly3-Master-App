@@ -12,9 +12,23 @@ import {
   CarryOutOutlined,
   DollarCircleOutlined
 } from '@ant-design/icons';
-// ---Components
+// ---Others
+import { appData } from 'Others/store-data.json';
 
 const { SubMenu } = Menu;
+const { menuRoutes } = appData;
+
+function buildKeys() {
+  let keys = {};
+  menuRoutes.forEach(roteData => {
+    const { route, parentKey } = roteData;
+    keys = {
+      ...keys,
+      [route]: parentKey
+    };
+  });
+  return keys;
+}
 
 function JustMenu(props) {
   const { collapsed, toggleCollapsed, goToRoute, currentPath } = props;
@@ -23,47 +37,7 @@ function JustMenu(props) {
   useEffect(() => setReRender(false), [reRender]);
   useEffect(() => setReRender(true), []);
 
-  const routes = {
-    products: [
-      '/master/adminProductos',
-      '/master/addProductos',
-      '/master/productInfo',
-      '/master/tienda'
-    ],
-    orders: ['/master/adminOrders', '/master/editOrder', '/master/storeCart'],
-    home: ['/master/publicHome'],
-    shipping: ['/master/shippingMethods'],
-    utility: [
-      '/master/utilidadDia',
-      '/master/utilidadSemana',
-      '/master/utilidadMes',
-      '/master/utilidadAño'
-    ],
-    users: [
-      '/master/editProfile',
-      '/master/adminUsers',
-      '/master/editUser',
-      '/master/createUser'
-    ]
-  };
-
-  const keys = {
-    [routes.products[0]]: routes.products[3],
-    [routes.products[1]]: routes.products[3],
-    [routes.products[2]]: routes.products[3],
-    [routes.products[3]]: routes.products[3],
-    [routes.home[0]]: routes.home[0],
-    [routes.shipping[0]]: routes.shipping[0],
-    [routes.orders[0]]: 'orderMenu',
-    [routes.orders[1]]: 'orderMenu',
-    [routes.orders[2]]: 'orderMenu',
-    [routes.utility[0]]: 'utilityMenu',
-    [routes.utility[1]]: 'utilityMenu',
-    [routes.utility[2]]: 'utilityMenu',
-    [routes.utility[3]]: 'utilityMenu',
-    [routes.users[0]]: 'usersMenu',
-    [routes.users[1]]: 'usersMenu'
-  };
+  const keys = buildKeys();
 
   if (!reRender)
     return (
@@ -91,41 +65,46 @@ function JustMenu(props) {
             title="Utilidades"
           >
             <Menu.Item
-              key={routes.utility[0]}
-              onClick={() => goToRoute(routes.utility[0])}
+              key="/master/utilidadDia"
+              onClick={() => goToRoute('/master/utilidadDia')}
             >
               Hoy
             </Menu.Item>
             <Menu.Item
-              key={routes.utility[1]}
-              onClick={() => goToRoute(routes.utility[1])}
+              key="/master/utilidadSemana"
+              onClick={() => goToRoute('/master/utilidadSemana')}
             >
               Semanal
             </Menu.Item>
             <Menu.Item
-              key={routes.utility[2]}
-              onClick={() => goToRoute(routes.utility[2])}
+              key="/master/utilidadMes"
+              onClick={() => goToRoute('/master/utilidadMes')}
             >
               Mensual
             </Menu.Item>
             <Menu.Item
-              key={routes.utility[3]}
-              onClick={() => goToRoute(routes.utility[3])}
+              key="/master/utilidadAño"
+              onClick={() => goToRoute('/master/utilidadAño')}
             >
               Anual
             </Menu.Item>
           </SubMenu>
-          <Menu.Item
+          <SubMenu
+            key="generalPublicMenu"
             icon={<DesktopOutlined />}
-            key={routes.home[0]}
-            onClick={() => goToRoute(routes.home[0])}
+            title="Publico General"
           >
-            Home publico
-          </Menu.Item>
+            <Menu.Item
+              key="/master/clientHome"
+              onClick={() => goToRoute('/master/clientHome')}
+            >
+              Pagina de inicio
+            </Menu.Item>
+          </SubMenu>
           <Menu.Item
             icon={<CodepenOutlined />}
             key="/master/shippingMethods"
-            onClick={() => goToRoute(routes.shipping[0])}
+            onClick={() => goToRoute('/master/shippingMethods')}
           >
             Metodos de envío
           </Menu.Item>
@@ -135,67 +114,79 @@ function JustMenu(props) {
             title="Productos"
           >
             <Menu.Item
-              key={routes.products[0]}
-              onClick={() => goToRoute(routes.products[0])}
+              key="/master/adminProductos"
+              onClick={() => goToRoute('/master/adminProductos')}
             >
               Administrar Productos
             </Menu.Item>
             <Menu.Item
-              key={routes.products[1]}
-              onClick={() => goToRoute(routes.products[1])}
+              key="/master/addProductos"
+              onClick={() => goToRoute('/master/addProductos')}
             >
               Agregar/Editar Productos
             </Menu.Item>
             <Menu.Item
-              key={routes.products[2]}
-              onClick={() => goToRoute(routes.products[2])}
+              key="/master/productInfo"
+              onClick={() => goToRoute('/master/productInfo')}
             >
               Consultar un producto
             </Menu.Item>
           </SubMenu>
           <SubMenu key="orderMenu" icon={<CarryOutOutlined />} title="Ordenes">
             <Menu.Item
-              key={routes.orders[0]}
-              onClick={() => goToRoute(routes.orders[0])}
+              key="/master/adminOrders"
+              onClick={() => goToRoute('/master/adminOrders')}
             >
               Administrar Ordenes
             </Menu.Item>
             <Menu.Item
-              key={routes.orders[1]}
-              onClick={() => goToRoute(routes.orders[1])}
+              key="/master/editOrder"
+              onClick={() => goToRoute('/master/editOrder')}
             >
               Editar Ordenes
             </Menu.Item>
             <Menu.Item
-              key={routes.orders[2]}
-              onClick={() => goToRoute(routes.orders[2])}
+              key="/master/storeCart"
+              onClick={() => goToRoute('/master/storeCart')}
             >
               Vender en mostrador
             </Menu.Item>
-            <Menu.Item disabled key="sub4-3">
+            <Menu.Item
+              key="/master/genOrder"
+              onClick={() => goToRoute('/master/genOrder')}
+            >
               Generar orden
             </Menu.Item>
-            <Menu.Item key="sub4-4">Seguimiento de ordenes</Menu.Item>
+            <Menu.Item
+              key="/master/followUpOrder"
+              onClick={() => goToRoute('/master/followUpOrder')}
+            >
+              Seguimiento de ordenes
+            </Menu.Item>
           </SubMenu>
           <SubMenu
             key="usersMenu"
             icon={<TeamOutlined />}
-            title="Cuentas de administracion"
+            title="Administración de cuentas"
           >
             <Menu.Item
-              key={routes.users[0]}
-              onClick={() => goToRoute(routes.users[0])}
+              key="/master/editProfile"
+              onClick={() => goToRoute('/master/editProfile')}
             >
               Editar mi perfil
             </Menu.Item>
             <Menu.Item
-              key={routes.users[1]}
-              onClick={() => goToRoute(routes.users[1])}
+              key="/master/adminUsers"
+              onClick={() => goToRoute('/master/adminUsers')}
             >
               Administrar cuentas
             </Menu.Item>
-            <Menu.Item key="sub5-3">Modificar cuenta</Menu.Item>
-            <Menu.Item key="sub5-4">Registrar cuenta nueva</Menu.Item>
+            <Menu.Item
+              key="/master/createUser"
+              onClick={() => goToRoute('/master/createUser')}
+            >
+              Crear/Editar cuentas
+            </Menu.Item>
           </SubMenu>
           <Menu.Item
             icon={<BarChartOutlined />}
