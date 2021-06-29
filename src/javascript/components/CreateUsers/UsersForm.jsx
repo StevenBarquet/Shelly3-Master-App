@@ -11,7 +11,7 @@ const { menuRoutes } = appData;
 
 // --- AUX COMPONENTS
 function JoiTextInput(props) {
-  const { label, name, validation } = props;
+  const { label, name, validation, disabled } = props;
   return (
     <Form.Item
       label={label}
@@ -22,12 +22,12 @@ function JoiTextInput(props) {
       }
       rules={[{ required: false, message: validation[name].message }]}
     >
-      <Input />
+      <Input disabled={disabled} />
     </Form.Item>
   );
 }
 function JoiPassInput(props) {
-  const { label, name, validation } = props;
+  const { label, name, validation, disabled } = props;
   return (
     <Form.Item
       label={label}
@@ -38,7 +38,7 @@ function JoiPassInput(props) {
       }
       rules={[{ required: false, message: validation[name].message }]}
     >
-      <Input.Password />
+      <Input.Password disabled={disabled} />
     </Form.Item>
   );
 }
@@ -78,7 +78,7 @@ function JoiSwitchInput(props) {
 
 // --- FORM SECTIONS
 function BasicInputs(props) {
-  const { validation } = props;
+  const { validation, isEdit } = props;
   return (
     <Col xs={24} sm={24} lg={12}>
       <Row gutter={[20, 0]}>
@@ -99,6 +99,7 @@ function BasicInputs(props) {
           <JoiPassInput
             label="Contraseña"
             name="pass"
+            disabled={isEdit}
             validation={validation}
           />
         </Col>
@@ -106,6 +107,15 @@ function BasicInputs(props) {
           <JoiPassInput
             label="Confirma contraseña"
             name="confirmPass"
+            disabled={isEdit}
+            validation={validation}
+          />
+        </Col>
+        <Col xs={24} sm={24} lg={24}>
+          <JoiTextInput
+            label="Id"
+            name="_id"
+            disabled
             validation={validation}
           />
         </Col>
@@ -348,7 +358,7 @@ function UsersForm(props) {
         onFinish={onSubmit}
       >
         <Row gutter={[20, 10]}>
-          <BasicInputs validation={validation} />
+          <BasicInputs isEdit={isEdit} validation={validation} />
           <ProfileInputs validation={validation} />
           <Col xs={24} sm={24} lg={24}>
             <h2>Características autorizadas</h2>

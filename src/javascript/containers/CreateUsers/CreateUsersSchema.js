@@ -26,6 +26,10 @@ const someMessages = {
     status: 'success',
     message: invalidMessages.strLengthMin + ' 3 caracteres'
   },
+  _id: {
+    status: 'success',
+    message: invalidMessages.optional
+  },
   // Profile inputs
   rfc: {
     status: 'success',
@@ -88,15 +92,22 @@ export function joiFormValidate(formData) {
       .min(3)
       .email({ tlds: { allow: false } })
       .required(),
-    pass: Joi.string()
-      .min(6)
-      .required(),
-    confirmPass: Joi.string()
-      .required()
-      .valid(Joi.ref('pass')),
+    pass: Joi.when('_id', {
+      is: Joi.string().required(),
+      then: Joi.allow(''),
+      otherwise: Joi.string()
+        .min(6)
+        .required()
+    }),
+    confirmPass: Joi.string().when('_id', {
+      is: Joi.string().required(),
+      then: Joi.allow(''),
+      otherwise: Joi.valid(Joi.ref('pass')).required()
+    }),
     fullName: Joi.string()
       .min(5)
       .required(),
+    _id: Joi.string().allow(''),
     // Profile inputs
     rfc: Joi.string()
       .min(12)

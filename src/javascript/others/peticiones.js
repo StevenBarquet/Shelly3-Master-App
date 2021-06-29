@@ -212,12 +212,42 @@ export async function logOut() {
   }
 }
 
+export async function checkRoute(data) {
+  const endpoint = 'users/routeAuth';
+  const url = urlServer + endpoint;
+  try {
+    const respose = await axios(url, {
+      method: 'post',
+      data,
+      withCredentials: true
+    });
+    return respose;
+  } catch (error) {
+    return error;
+  }
+}
+// -----------------------------------------Cuentas-------------------------------------
 export async function getAllUsers() {
   const endpoint = 'users/all';
   const url = urlServer + endpoint;
   try {
     const respose = await axios(url, {
       method: 'get',
+      withCredentials: true
+    });
+    return respose;
+  } catch (error) {
+    return error;
+  }
+}
+
+export async function getOneUser(data) {
+  const endpoint = 'users/one';
+  const url = urlServer + endpoint;
+  try {
+    const respose = await axios(url, {
+      method: 'post',
+      data,
       withCredentials: true
     });
     return respose;
@@ -241,8 +271,8 @@ export async function deleteUser(data) {
   }
 }
 
-export async function checkRoute(data) {
-  const endpoint = 'users/routeAuth';
+export async function createUserReq(data) {
+  const endpoint = 'users/registrar';
   const url = urlServer + endpoint;
   try {
     const respose = await axios(url, {
@@ -256,6 +286,20 @@ export async function checkRoute(data) {
   }
 }
 
+export async function editUserReq(data) {
+  const endpoint = 'users/editar';
+  const url = urlServer + endpoint;
+  try {
+    const respose = await axios(url, {
+      method: 'put',
+      data,
+      withCredentials: true
+    });
+    return respose;
+  } catch (error) {
+    return error;
+  }
+}
 // -------------------------------------------others----------------------------------------
 export async function genericGet(url) {
   try {

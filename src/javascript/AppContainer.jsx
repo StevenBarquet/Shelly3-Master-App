@@ -35,7 +35,7 @@ function AppContainer() {
         <Route exact path="/master/utilidadDia" component={UtilityDay} />
         <Route exact path="/master/utilidadSemana" component={UtilityWeek} />
         <Route exact path="/master/utilidadMes" component={UtilityMonth} />
-        <Route exact path="/master/utilidadAño" component={UtilityYear} />
+        <Route exact path="/master/utilidadYear" component={UtilityYear} />
         {/* Products */}
         <Route exact path="/master" component={ToHomeMaster} />
         <Route exact path="/master/tienda" component={HomePageMaster} />

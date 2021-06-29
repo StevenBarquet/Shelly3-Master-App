@@ -120,8 +120,8 @@
         "parentKey": "utilityMenu"
       },
       {
-        "route": "/master/utilidadAño",
-        "routeName": "utilidadAño",
+        "route": "/master/utilidadYear",
+        "routeName": "utilidadYear",
         "routeLabel": "Utilidad anual",
         "parentKey": "utilityMenu"
       },

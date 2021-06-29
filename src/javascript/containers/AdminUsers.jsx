@@ -103,14 +103,14 @@ function AdminUsers() {
   }
   function onDeleteButton(data) {
     const question = '¿Deseas eliminar éste usuario?';
-    const details = `Los datos del usuario serán eliminados permanentemente`;
+    const details = `Los datos del usuario "${data}" serán eliminados permanentemente`;
     ModalConfirmation(question, details, onCancelOrder, data);
   }
 
   // ----------------------- Metodos Auxiliares
-  function onCancelOrder(idData) {
+  function onCancelOrder(id) {
     isLoading(true);
-    asyncHandler(deleteUser, onSuccessDelete, onError, idData);
+    asyncHandler(deleteUser, onSuccessDelete, onError, { id });
   }
   function onSuccessDelete() {
     isLoading(false);

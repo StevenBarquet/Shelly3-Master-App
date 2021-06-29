@@ -83,8 +83,8 @@ function JustMenu(props) {
               Mensual
             </Menu.Item>
             <Menu.Item
-              key="/master/utilidadAño"
-              onClick={() => goToRoute('/master/utilidadAño')}
+              key="/master/utilidadYear"
+              onClick={() => goToRoute('/master/utilidadYear')}
             >
               Anual
             </Menu.Item>
