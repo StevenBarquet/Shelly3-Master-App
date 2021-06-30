@@ -1,7 +1,13 @@
 // ---Dependencys
 import React from 'react';
 import { Form, Row, Col, Input, InputNumber, Switch } from 'antd';
-import { EditOutlined, PlusOutlined, ClearOutlined } from '@ant-design/icons';
+import {
+  EditOutlined,
+  PlusOutlined,
+  ClearOutlined,
+  StopOutlined,
+  CheckOutlined
+} from '@ant-design/icons';
 // ---Util Comps
 import ButtonMlg from 'Utils/ButtonMlg';
 // ---Others
@@ -301,6 +307,35 @@ function GralPublicRoutes(props) {
     </Col>
   );
 }
+function AuthFeaturesButtons(props) {
+  const { changeFormAuthAll } = props;
+  return (
+    <>
+      <Col className="center-block" xs={24} sm={24} lg={12}>
+        <ButtonMlg
+          variant="blue"
+          size="small"
+          htmlType="button"
+          onClick={() => changeFormAuthAll(true)}
+          widthB="85%"
+          label="Permitir todo"
+          icon={<CheckOutlined />}
+        />
+      </Col>
+      <Col className="center-block" xs={24} sm={24} lg={12}>
+        <ButtonMlg
+          variant="purple"
+          size="small"
+          htmlType="button"
+          onClick={() => changeFormAuthAll(false)}
+          widthB="85%"
+          label="Restringir todo"
+          icon={<StopOutlined />}
+        />
+      </Col>
+    </>
+  );
+}
 function SubmitMenu(props) {
   const { isValidForm, onClearForm, isEdit } = props;
   return (
@@ -312,7 +347,7 @@ function SubmitMenu(props) {
       )}
       <div className="submit-container">
         <Row style={{ width: '100%' }}>
-          <Col xs={24} sm={24} lg={6}>
+          <Col className="center-block" xs={24} sm={24} lg={6}>
             <ButtonMlg
               variant="yellow-outline"
               size="small"
@@ -323,9 +358,9 @@ function SubmitMenu(props) {
               icon={<ClearOutlined />}
             />
           </Col>
-          <Col xs={24} sm={24} lg={18}>
+          <Col className="center-block" xs={24} sm={24} lg={18}>
             <ButtonMlg
-              variant="purple"
+              variant="yellow"
               size="small"
               htmlType="submit"
               widthB="85%"
@@ -347,7 +382,8 @@ function UsersForm(props) {
     validation,
     isValidForm,
     isEdit,
-    onClearForm
+    onClearForm,
+    changeFormAuthAll
   } = props;
 
   return (
@@ -363,6 +399,7 @@ function UsersForm(props) {
           <Col xs={24} sm={24} lg={24}>
             <h2>Características autorizadas</h2>
           </Col>
+          <AuthFeaturesButtons changeFormAuthAll={changeFormAuthAll} />
           <UtilityRoutes validation={validation} />
           <ProductRoutes validation={validation} />
           <OrdersRoutes validation={validation} />

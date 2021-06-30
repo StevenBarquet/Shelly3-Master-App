@@ -18,13 +18,13 @@ import { joiFormValidate, messagesSchema } from './CreateUsersSchema';
 
 const { menuRoutes } = appData;
 
-function buildRoutes() {
+function buildRoutes(value) {
   let starterForm = {};
   menuRoutes.forEach(roteData => {
     const { routeName } = roteData;
     starterForm = {
       ...starterForm,
-      [routeName]: false
+      [routeName]: value
     };
   });
   return starterForm;
@@ -49,7 +49,7 @@ const {
 
 const initialState = {
   msgSchema: messagesSchema,
-  form: buildRoutes(),
+  form: buildRoutes(false),
   isValidForm: true
 };
 
@@ -202,7 +202,7 @@ function CreateUsers() {
     return cleanData;
   }
   function getRouteNamesObj(authorizedRoutes) {
-    let routeNamesObj = buildRoutes();
+    let routeNamesObj = buildRoutes(false);
     authorizedRoutes.forEach(route => {
       const notBasicRoute = basicRoutes.indexOf(route) === -1;
       if (notBasicRoute) {
@@ -250,6 +250,11 @@ function CreateUsers() {
     }
     return match;
   }
+  function changeFormAuthAll(authAll) {
+    const routesObj = buildRoutes(authAll);
+    dispatch({ type: UPDATE_FORM, payload: routesObj });
+    setReRender(true);
+  }
   // ----------------------- Render
   return (
     <StoreMenuCont>
@@ -267,6 +272,7 @@ function CreateUsers() {
             isValidForm={state.isValidForm}
             onClearForm={onClearForm}
             isEdit={state.form._id}
+            changeFormAuthAll={changeFormAuthAll}
           />
         )}
       </div>
