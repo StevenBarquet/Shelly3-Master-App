@@ -305,7 +305,7 @@ export async function genericGet(url) {
   try {
     const respose = await axios(url, {
       method: 'get',
-      withCredentials: true
+      withCredentials: false
     });
     return respose;
   } catch (error) {
