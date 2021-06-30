@@ -23,6 +23,17 @@ function UtilitySumary(props) {
     }
     return 0;
   }
+  function getAllSells(items) {
+    const someItems = items && items.length > 0 ? items : null;
+    if (someItems) {
+      let suma = 0;
+      someItems.forEach(element => {
+        suma += element.totalVenta;
+      });
+      return suma;
+    }
+    return 0;
+  }
   // ----------------------- Metodos Auxiliares
   return (
     <div className="store-content-container">
@@ -38,6 +49,11 @@ function UtilitySumary(props) {
         <Col xs={24} sm={24} lg={24}>
           <h4>
             Utilidad total: <span>{priceFormat(getAllUtility(orders))}</span>
+          </h4>
+        </Col>
+        <Col xs={24} sm={24} lg={24}>
+          <h4>
+            Venta total: <span>{priceFormat(getAllSells(orders))}</span>
           </h4>
         </Col>
       </Row>
