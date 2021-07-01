@@ -2,12 +2,16 @@ import {
   UPDATE_PARAMS,
   CHANGE_RESPONSIVE,
   UPDATE_PATH,
-  UPDATE_LOADING
+  UPDATE_LOADING,
+  UPDATE_SESSION_DATA
 } from 'Types';
 
 const INITIAL_STATE = {
   isMovil: false,
-  isLoading: false
+  isLoading: false,
+  currentPath: '',
+  currentParams: '',
+  sessionData: {}
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -35,6 +39,15 @@ export default (state = INITIAL_STATE, action) => {
       return {
         ...state,
         isLoading: payload
+      };
+
+    case UPDATE_SESSION_DATA:
+      return {
+        ...state,
+        sessionData: {
+          ...state.sessionData,
+          ...payload
+        }
       };
 
     default:

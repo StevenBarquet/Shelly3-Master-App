@@ -98,6 +98,9 @@
       },
       "CreateUsersPage": {
         "title": "Crear/Editar cuentas"
+      },
+      "EditUsersPage": {
+        "title": "Editar mi perfil"
       }
     },
     "menuRoutes": [

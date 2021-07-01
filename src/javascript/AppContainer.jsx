@@ -19,6 +19,7 @@ import UtilityMonth from 'Pages/UtilityMonthPage';
 import UtilityYear from 'Pages/UtilityYearPage';
 import AdminUsers from 'Pages/AdminUsersPage';
 import CreateUsers from 'Pages/CreateUsersPage';
+import EditUsers from 'Pages/EditUsersPage';
 
 // ---Pages Others
 import Error404Page from 'Pages/Error404Page';
@@ -64,6 +65,7 @@ function AppContainer() {
         />
         {/* Users */}
         <Route exact path="/master/adminUsers" component={AdminUsers} />
+        <Route exact path="/master/editProfile" component={EditUsers} />
         <Route
           exact
           path="/master/createUser([?0-9a-zA-Z]*)"

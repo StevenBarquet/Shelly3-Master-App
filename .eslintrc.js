@@ -67,6 +67,7 @@ module.exports = {
     "no-plusplus": 0,
     "import/prefer-default-export": 0,
     "import": 0,
+    "import/order": 0,
     "import/no-unresolved": 0,
     "import/no-extraneous-dependencies": 0,
     "func-names": 0,

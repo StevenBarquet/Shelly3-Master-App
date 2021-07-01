@@ -256,6 +256,21 @@ export async function getOneUser(data) {
   }
 }
 
+export async function getOneUserMail(data) {
+  const endpoint = 'users/oneMail';
+  const url = urlServer + endpoint;
+  try {
+    const respose = await axios(url, {
+      method: 'post',
+      data,
+      withCredentials: true
+    });
+    return respose;
+  } catch (error) {
+    return error;
+  }
+}
+
 export async function deleteUser(data) {
   const endpoint = 'users/borrar';
   const url = urlServer + endpoint;
@@ -288,6 +303,20 @@ export async function createUserReq(data) {
 
 export async function editUserReq(data) {
   const endpoint = 'users/editar';
+  const url = urlServer + endpoint;
+  try {
+    const respose = await axios(url, {
+      method: 'put',
+      data,
+      withCredentials: true
+    });
+    return respose;
+  } catch (error) {
+    return error;
+  }
+}
+export async function editProfileReq(data) {
+  const endpoint = 'users/editarPerfil';
   const url = urlServer + endpoint;
   try {
     const respose = await axios(url, {

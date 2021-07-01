@@ -10,11 +10,14 @@ import { useSelector } from 'react-redux';
 // ------------------------------------------ COMPONENT-----------------------------------------
 function HomeMasterCont() {
   // Redux States
-  const { isMovil } = useSelector(reducers => reducers.appInfoReducer);
+  const { isMovil, sessionData } = useSelector(
+    reducers => reducers.appInfoReducer
+  );
+  const { fullName } = sessionData;
   return (
     <StoreMenuCont>
       <div className="store-welcom-container">
-        <h1>¡Bienvenido!</h1>
+        <h1>{fullName ? `¡Bienvenido ${fullName}!` : '¡Bienvenido!'}</h1>
         <h4>Administra tu comercio en el menu</h4>
         <span>{isMovil ? <ArrowUpOutlined /> : <ArrowLeftOutlined />}</span>
       </div>

@@ -104,7 +104,7 @@ function CreateUsers() {
   // Redux Actions
   const isLoading = flag => dispatchR(updateLoading(flag));
 
-  useEffect(() => getProductData(), [currentParams]);
+  useEffect(() => getUsersData(), [currentParams]);
 
   // ----------------------- Metodos Principales
   function onChangeForm(obj) {
@@ -129,7 +129,7 @@ function CreateUsers() {
     dispatch({ type: RESET_FORM });
     setReRender(true);
   }
-  function getProductData() {
+  function getUsersData() {
     const id = getID(currentParams);
     if (id) {
       isLoading(true);
@@ -191,15 +191,22 @@ function CreateUsers() {
     return menuRoutes.map(routeData => routeData.routeName);
   }
   function fitDataToForm(data) {
-    const { authorizedRoutes } = data;
+    const { phone, otherPhone, authorizedRoutes } = data;
+    const fixedPhone = phone ? parseInt(phone, 10) : null;
+    const fixedOtherPhone = otherPhone ? parseInt(otherPhone, 10) : null;
+    let fixedData = {
+      ...data,
+      phone: fixedPhone,
+      otherPhone: fixedOtherPhone
+    };
     const ignore = ['__v', 'authorizedRoutes'];
     const routeNamesObj = getRouteNamesObj(authorizedRoutes);
-    let cleanData = ignoreArgs(data, ignore);
-    cleanData = removeEmptyAndNull(cleanData);
-    cleanData = { ...cleanData, ...routeNamesObj };
+    fixedData = ignoreArgs(fixedData, ignore);
+    fixedData = removeEmptyAndNull(fixedData);
+    fixedData = { ...fixedData, ...routeNamesObj };
 
-    // console.log('fitDataToForm: ', cleanData);
-    return cleanData;
+    // console.log('fitDataToForm: ', fixedData);
+    return fixedData;
   }
   function getRouteNamesObj(authorizedRoutes) {
     let routeNamesObj = buildRoutes(false);
@@ -216,15 +223,23 @@ function CreateUsers() {
     return routeNamesObj;
   }
   function fitDataToRequest(data) {
+    const { phone, otherPhone } = data;
+    const fixedPhone = phone ? phone.toString() : null;
+    const fixedOtherPhone = otherPhone ? otherPhone.toString() : null;
+    let fixedData = {
+      ...data,
+      phone: fixedPhone,
+      otherPhone: fixedOtherPhone
+    };
     const allRouteNames = getRouteNames();
     const authorizedRoutes = getAuthRoutes(data, allRouteNames);
     const ignore = ['__v', 'confirmPass', ...allRouteNames];
-    let cleanData = ignoreArgs(data, ignore);
-    cleanData = removeEmptyAndNull(cleanData);
-    cleanData = { ...cleanData, authorizedRoutes };
+    fixedData = ignoreArgs(fixedData, ignore);
+    fixedData = removeEmptyAndNull(fixedData);
+    fixedData = { ...fixedData, authorizedRoutes };
 
-    // console.log('fitDataToRequest: ', cleanData);
-    return cleanData;
+    // console.log('fitDataToRequest: ', fixedData);
+    return fixedData;
   }
   function getAuthRoutes(data, routeNames) {
     const keys = Object.keys(data);

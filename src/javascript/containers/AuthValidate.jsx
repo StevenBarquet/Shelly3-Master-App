@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 // ---Redux
 import { useSelector, useDispatch } from 'react-redux';
-import { updateLoading } from 'Actions/appInfo';
+import { updateLoading, updateSessionData } from 'Actions/appInfo';
 // --Request
 import { asyncHandler, testError } from 'Others/requestHandlers.js';
 import { checkRoute } from 'Others/peticiones.js';
@@ -18,10 +18,12 @@ function AuthValidate(props) {
   const { currentPath } = useSelector(reducers => reducers.appInfoReducer);
 
   const [localRoute, setLocalRoute] = useState(currentPath);
+  const [authRender, setAuthRender] = useState(false);
 
   const dispatchR = useDispatch();
   // Redux Actions
   const isLoading = flag => dispatchR(updateLoading(flag));
+  const updateReduxSession = data => dispatchR(updateSessionData(data));
 
   useEffect(updateLocalRoute, [currentPath]);
 
@@ -62,8 +64,10 @@ function AuthValidate(props) {
     asyncHandler(checkRoute, onSuccessAuth, onErrorAuth, reqData);
   }
 
-  function onSuccessAuth() {
+  function onSuccessAuth(data) {
+    updateReduxSession(data.sessionData);
     isLoading(false);
+    setAuthRender(true);
   }
 
   function onErrorAuth(data) {
@@ -72,7 +76,7 @@ function AuthValidate(props) {
   }
 
   // ----------------------- Render
-  return <React.Fragment>{children}</React.Fragment>;
+  return <React.Fragment>{authRender && children}</React.Fragment>;
 }
 
 export default AuthValidate;
