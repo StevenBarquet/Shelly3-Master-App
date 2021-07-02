@@ -3,6 +3,7 @@ export const invalidMessages = {
   isString: `El campo debe ser de tipo texto`,
   isNumber: `El campo debe ser de tipo numérico`,
   isMail: `El campo debe ser un correo electrónico`,
+  is_id: `El campo debe ser un id`,
   isPhone: `El campo debe ser numérico a 10 dígitos`,
   isRequired: `Campo requerido`,
   notEmpty: `El campo no puede estar vacío`,

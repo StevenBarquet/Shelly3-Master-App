@@ -66,7 +66,7 @@
       "AddProductsPage": {
         "title": "Agregar productos"
       },
-      "AdminPublicHomePage": {
+      "ClientHomeAdminPage": {
         "title": "Administrador del home page"
       },
       "ProductsInfoPage": {
@@ -400,6 +400,50 @@
           "label": "Entrega a convenir programada",
           "value": "Entrega a convenir programada"
         }]
+    },
+    "home": {
+      "textColors": [
+        {
+          "label": "Negro",
+          "value": null
+        },
+        {
+          "label": "Azul",
+          "value": "Azul"
+        },
+        {
+          "label": "Morado",
+          "value": "Morado"
+        },
+        {
+          "label": "Verde",
+          "value": "Verde"
+        },
+        {
+          "label": "Amarillo",
+          "value": "Amarillo"
+        },
+        {
+          "label": "Naranja",
+          "value": "Naranja"
+        },
+        {
+          "label": "Rosa",
+          "value": "Rosa"
+        },
+        {
+          "label": "Rojo",
+          "value": "Rojo"
+        },
+        {
+          "label": "Gris",
+          "value": "Gris"
+        },
+        {
+          "label": "Blanco",
+          "value": "Blanco"
+        }
+      ]
     }
   },
   "estadosMex": [

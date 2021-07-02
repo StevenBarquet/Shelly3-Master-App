@@ -1,18 +1,18 @@
 // ---Dependencys
 import React from 'react';
 // ---Components
-import AdminPublicHome from 'Cont/AdminPublicHome';
+import ClientHomeAdmin from 'Cont/ClientHomeAdmin';
 // ---Handle html headers
 import CustomHelmet from 'Comp/CustomHelmet';
 
 // ------------------------------------------ COMPONENT-----------------------------------------
-const AdminPublicHomePage = () => {
+const ClientHomeAdminPage = () => {
   return (
     <React.Fragment>
-      <CustomHelmet pageName="AdminPublicHomePage" />
-      <AdminPublicHome />
+      <CustomHelmet pageName="ClientHomeAdminPage" />
+      <ClientHomeAdmin />
     </React.Fragment>
   );
 };
 
-export default AdminPublicHomePage;
+export default ClientHomeAdminPage;

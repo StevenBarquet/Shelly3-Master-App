@@ -329,6 +329,35 @@ export async function editProfileReq(data) {
     return error;
   }
 }
+// -----------------------------------------Home-------------------------------------
+export async function getHomeReq() {
+  const endpoint = 'admin/home/getHome';
+  const url = urlServer + endpoint;
+  try {
+    const respose = await axios(url, {
+      method: 'get',
+      withCredentials: true
+    });
+    return respose;
+  } catch (error) {
+    return error;
+  }
+}
+
+export async function editHomeReq(data) {
+  const endpoint = 'admin/home/editar';
+  const url = urlServer + endpoint;
+  try {
+    const respose = await axios(url, {
+      method: 'put',
+      data,
+      withCredentials: true
+    });
+    return respose;
+  } catch (error) {
+    return error;
+  }
+}
 // -------------------------------------------others----------------------------------------
 export async function genericGet(url) {
   try {

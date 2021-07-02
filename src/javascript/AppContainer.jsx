@@ -6,7 +6,7 @@ import HomePageMaster from 'Pages/HomePageMaster';
 import ProductsInfoPage from 'Pages/ProductsInfoPage';
 import AdminProductsPage from 'Pages/AdminProductsPage';
 import AddProductsPage from 'Pages/AddProductsPage';
-import AdminPublicHome from 'Pages/AdminPublicHomePage';
+import ClientHomeAdmin from 'Pages/ClientHomeAdminPage';
 import ToHomeMaster from 'Pages/ToHomeMasterPage';
 import MasterLogin from 'Pages/MasterLoginPage';
 import MasterLogout from 'Pages/MasterLogoutPage';
@@ -72,7 +72,7 @@ function AppContainer() {
           component={CreateUsers}
         />
         {/* Others */}
-        <Route exact path="/master/publicHome" component={AdminPublicHome} />
+        <Route exact path="/master/clientHome" component={ClientHomeAdmin} />
         <Route exact path="/master/login" component={MasterLogin} />
         <Route exact path="/master/salir" component={MasterLogout} />
         {/* --------- Client routes --------- */}

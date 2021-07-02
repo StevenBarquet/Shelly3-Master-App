@@ -68,7 +68,7 @@ function SubmitMenu(props) {
       )}
       <div className="submit-container">
         <Row style={{ width: '100%' }}>
-          <Col xs={24} sm={24} lg={6}>
+          <Col className="center-block" xs={24} sm={24} lg={6}>
             <ButtonMlg
               variant="yellow-outline"
               size="small"
@@ -79,7 +79,7 @@ function SubmitMenu(props) {
               icon={<ClearOutlined />}
             />
           </Col>
-          <Col xs={24} sm={24} lg={18}>
+          <Col className="center-block" xs={24} sm={24} lg={18}>
             <ButtonMlg
               variant="purple"
               size="small"
