@@ -11,7 +11,8 @@ const ButtonMlg = props => {
     icon,
     estilo,
     value,
-    onClick
+    onClick,
+    someID
   } = props;
 
   const checkVariant = () => {
@@ -66,6 +67,7 @@ const ButtonMlg = props => {
         type={variant === 'block' ? 'button' : 'submit'}
         style={checkWidth()}
         value={value}
+        id={someID}
         onClick={variant === 'block' ? null : onClick}
         className={estilo || 'btn-mlg ' + checkVariant() + ' ' + checkSize()}
       >
@@ -80,6 +82,7 @@ const ButtonMlg = props => {
       type="button"
       style={checkWidth()}
       value={value}
+      id={someID}
       onClick={variant === 'block' ? null : onClick}
       className={estilo || 'btn-mlg ' + checkVariant() + ' ' + checkSize()}
     >

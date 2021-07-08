@@ -170,7 +170,7 @@ function BannersSection(props) {
 function InfoTextInputs(props) {
   const { validation } = props;
   return (
-    <Col xs={24} sm={24} lg={8}>
+    <Col xs={24} sm={24} lg={24}>
       <Row gutter={[20, 0]}>
         <Col xs={24} sm={24} lg={24}>
           <h2>Información en home page:</h2>
@@ -242,8 +242,7 @@ function HomeForm(props) {
     validation,
     isValidForm,
     onClearForm,
-    bannerCount,
-    createNewBanner
+    formInstance
   } = props;
   return (
     <>
@@ -251,16 +250,11 @@ function HomeForm(props) {
         initialValues={defaultValues}
         onValuesChange={onChangeForm}
         onFinish={onSubmit}
+        form={formInstance}
       >
         <Row gutter={[20, 10]}>
           <InfoTextInputs validation={validation} />
-          <BannersSection
-            createNewBanner={createNewBanner}
-            validation={validation}
-            bannerCount={bannerCount}
-          />
           {/* Finish Form */}
-          <SubmitMenu onClearForm={onClearForm} isValidForm={isValidForm} />
         </Row>
       </Form>
     </>

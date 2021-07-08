@@ -83,6 +83,37 @@ export const searchProductByID = (items, id) => {
   return found;
 };
 
+export const searchObjectByProp = (items, key, value) => {
+  // Busca el index de un id específico en un array con key llamada "_id"
+  let found = null;
+  items.forEach((item, index) => {
+    if (item[key] === value) found = index;
+  });
+  return found;
+};
+
+export const arrayWithoutIndex = (array, skipIndex) => {
+  let newArray = [];
+  array.forEach((element, index) => {
+    if (index !== skipIndex) {
+      newArray = [...newArray, element];
+    }
+  });
+  return newArray;
+};
+
+export const arrayElementSustitution = (array, elementIndex, newElement) => {
+  let newArray = [];
+  array.forEach((element, index) => {
+    if (index === elementIndex) {
+      newArray = [...newArray, newElement];
+    } else {
+      newArray = [...newArray, element];
+    }
+  });
+  return newArray;
+};
+
 export const getOneParam = cadena => {
   // obtiene el param de una url cuando sólo existe 1
   const indexStart = cadena.search(':');
@@ -143,6 +174,17 @@ export function selectArgs(someObj, args) {
     doCopy = false;
   });
   return newData;
+}
+
+export function genRandomString(length) {
+  let result = '';
+  const characters =
+    'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  const charactersLength = characters.length;
+  for (let i = 0; i < length; i++) {
+    result += characters.charAt(Math.floor(Math.random() * charactersLength));
+  }
+  return result;
 }
 
 export function removeNullProperties(obj) {
