@@ -1,12 +1,12 @@
 // ---Dependencys
 import React from 'react';
 import { Form, Row, Col } from 'antd';
-import { EditOutlined, ClearOutlined } from '@ant-design/icons';
+import { EditOutlined } from '@ant-design/icons';
 // ---Util Comps
 import ButtonMlg from 'Utils/ButtonMlg';
 
 function SubmitMenu(props) {
-  const { isValidForm, onClearForm, onSubmit, formInstance } = props;
+  const { isValidForm, onSubmit, formInstance } = props;
   return (
     <>
       {!isValidForm && (
@@ -17,23 +17,12 @@ function SubmitMenu(props) {
       <Form onFinish={onSubmit} form={formInstance}>
         <div className="submit-container">
           <Row style={{ width: '100%' }}>
-            <Col className="center-block" xs={24} sm={24} lg={6}>
-              <ButtonMlg
-                variant="yellow-outline"
-                size="small"
-                htmlType="button"
-                onClick={onClearForm}
-                widthB="85%"
-                label="Limpiar formulario"
-                icon={<ClearOutlined />}
-              />
-            </Col>
-            <Col className="center-block" xs={24} sm={24} lg={18}>
+            <Col className="center-block" xs={24} sm={24} lg={24}>
               <ButtonMlg
                 variant="yellow"
                 size="small"
                 htmlType="submit"
-                widthB="85%"
+                widthB="60%"
                 label="Modificar Home"
                 icon={<EditOutlined />}
               />

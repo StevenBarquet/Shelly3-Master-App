@@ -20,8 +20,8 @@
         "value": "Kros"
       },
       {
-        "label": "Pedrito",
-        "value": "Pedrito"
+        "label": "Vane",
+        "value": "Vane"
       },
       {
         "label": "El Angel",
@@ -405,43 +405,43 @@
       "textColors": [
         {
           "label": "Negro",
-          "value": null
+          "value": "#474747"
         },
         {
           "label": "Azul",
-          "value": "Azul"
+          "value": "#2493fa"
         },
         {
           "label": "Morado",
-          "value": "Morado"
+          "value": "#8a57e9"
         },
         {
           "label": "Verde",
-          "value": "Verde"
+          "value": "#3ab415"
         },
         {
           "label": "Amarillo",
-          "value": "Amarillo"
+          "value": "#ffeb39"
         },
         {
           "label": "Naranja",
-          "value": "Naranja"
+          "value": "#ff9100"
         },
         {
           "label": "Rosa",
-          "value": "Rosa"
+          "value": "#f4a4ff"
         },
         {
           "label": "Rojo",
-          "value": "Rojo"
+          "value": "#ff4d4f"
         },
         {
           "label": "Gris",
-          "value": "Gris"
+          "value": "#8b8b8b"
         },
         {
           "label": "Blanco",
-          "value": "Blanco"
+          "value": "#ffffff"
         }
       ]
     }

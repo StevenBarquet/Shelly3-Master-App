@@ -39,12 +39,6 @@ function buildMessageProps(messagesObj) {
   for (let i = 0; i < 12; i++) {
     newProps = {
       ...newProps,
-      [`imgDesk${i}`]: messagesTemplates.imgDesk,
-      [`imgMovil${i}`]: messagesTemplates.imgMovil,
-      [`text${i}`]: messagesTemplates.text,
-      [`textColor${i}`]: messagesTemplates.textColor,
-      [`link${i}`]: messagesTemplates.link,
-      [`visible${i}`]: messagesTemplates.visible,
       [`porductID${i}`]: messagesTemplates.porductID
     };
   }
@@ -53,6 +47,10 @@ function buildMessageProps(messagesObj) {
 
 // ---schema JS File
 const someMessages = {
+  _id: {
+    status: 'success',
+    message: invalidMessages.isRequired
+  },
   paragraph: {
     status: 'success',
     message: invalidMessages.strLengthMin + ' 3 caracteres'
@@ -71,19 +69,9 @@ export const messagesSchema = buildMessageProps(someMessages);
 
 function buildExtendedPropertys() {
   let extendedPropertys = {};
-  for (let i = 0; i < 9; i++) {
+  for (let i = 0; i < 12; i++) {
     extendedPropertys = {
       ...extendedPropertys,
-      [`imgDesk${i}`]: Joi.string()
-        .min(3)
-        .allow(''),
-      [`imgMovil${i}`]: Joi.string()
-        .min(3)
-        .allow(''),
-      [`text${i}`]: Joi.string().allow(''),
-      [`textColor${i}`]: Joi.string().allow(''),
-      [`link${i}`]: Joi.string().allow(''),
-      [`visible${i}`]: Joi.boolean(),
       [`porductID${i}`]: Joi.string()
         .pattern(/^[0-9a-fA-F]{24}$/)
         .allow('')
@@ -94,6 +82,9 @@ function buildExtendedPropertys() {
 
 export function joiFormValidate(formData) {
   const schema = Joi.object({
+    _id: Joi.string()
+      .pattern(/^[0-9a-fA-F]{24}$/)
+      .required(),
     paragraph: Joi.string()
       .min(3)
       .required(),

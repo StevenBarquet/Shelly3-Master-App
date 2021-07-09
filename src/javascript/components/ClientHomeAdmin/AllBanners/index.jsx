@@ -3,8 +3,9 @@ import { Row, Col } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
 // ---Util Comps
 import ButtonMlg from 'Utils/ButtonMlg';
-// ---Containers
-import SomeBannerCont from 'Cont/ClientHomeAdmin/SomeBannerCont/index';
+// ---Comps
+import BannerCard from 'Comp/ClientHomeAdmin/AllBanners/BannerCard';
+import SomeBannerForm from 'Comp/ClientHomeAdmin/AllBanners/SomeBannerForm';
 
 // --- FORM SECTIONS
 function TitleSection(props) {
@@ -32,28 +33,48 @@ function TitleSection(props) {
   );
 }
 function MapBanners(props) {
-  const { bannerFormMethods, bannersData } = props;
-  const { bannersArray } = bannersData;
+  const {
+    bannerFormMethods,
+    bannersArray,
+    isEditingBanner,
+    allBannersData
+  } = props;
   if (bannersArray && bannersArray.length > 0)
-    return bannersArray.map(bannerData => (
-      <SomeBannerCont
-        bannerFormMethods={bannerFormMethods}
-        allBannersData={bannersData}
-        bannerData={bannerData}
-        key={bannerData.bannerID}
-      />
-    ));
+    return bannersArray.map(bannerData => {
+      const { bannerID } = bannerData;
+      if (bannerID === isEditingBanner)
+        return (
+          <SomeBannerForm
+            bannerID={bannerID}
+            bannerFormMethods={bannerFormMethods}
+            allBannersData={allBannersData}
+            bannerData={bannerData}
+            key={bannerID}
+          />
+        );
+      if (bannerData.banner)
+        return (
+          <BannerCard
+            bannerFormMethods={bannerFormMethods}
+            bannerData={bannerData}
+            key={bannerID}
+          />
+        );
+      return null;
+    });
   return null;
 }
 // --------------------------------------- FORM COMPONENT --------------------------------------
 function AllBanners(props) {
-  const { allBannersMethods, bannerFormMethods, bannersData } = props;
+  const { allBannersMethods, bannerFormMethods, allBannersData } = props;
   return (
     <Row gutter={[20, 10]}>
       <TitleSection allBannersMethods={allBannersMethods} />
       <MapBanners
         bannerFormMethods={bannerFormMethods}
-        bannersData={bannersData}
+        bannersArray={allBannersData.bannersArray}
+        isEditingBanner={allBannersData.isEditingBanner}
+        allBannersData={allBannersData}
       />
     </Row>
   );

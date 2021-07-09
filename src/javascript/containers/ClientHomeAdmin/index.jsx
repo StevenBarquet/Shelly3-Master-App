@@ -16,6 +16,10 @@ import { getHomeReq } from 'Others/peticiones.js';
 // ---Others
 import { joiFormValidate, messagesSchema } from './ClientHomeAdminSchema';
 import {
+  joiFormValidate as joiFormValidateBanner,
+  messagesSchema as messagesSchemaBanner
+} from './SomeBannerContSchema';
+import {
   genRandomString,
   ignoreArgs,
   searchObjectByProp,
@@ -34,12 +38,12 @@ function AllForms(props) {
     allBannersMethods,
     formInstance,
     bannerFormMethods,
-    bannersData
+    allBannersData
   } = props;
-  if (!reRender)
-    return (
-      <Row gutter={[20, 10]}>
-        <Col xs={24} sm={24} lg={8}>
+  return (
+    <Row gutter={[20, 10]}>
+      <Col xs={24} sm={24} lg={8}>
+        {!reRender && (
           <HomeForm
             onChangeForm={homeFormMethods.onChangeForm}
             defaultValues={defaultValues}
@@ -47,25 +51,25 @@ function AllForms(props) {
             isValidForm={isValidForm}
             formInstance={formInstance}
           />
-        </Col>
-        <Col xs={24} sm={24} lg={15}>
-          <AllBanners
-            allBannersMethods={allBannersMethods}
-            bannerFormMethods={bannerFormMethods}
-            bannersData={bannersData}
-          />
-        </Col>
-        <Col xs={24} sm={24} lg={24}>
-          <SubmitMenu
-            isValidForm={isValidForm}
-            onSubmit={homeFormMethods.onSubmit}
-            onClearForm={homeFormMethods.onClearForm}
-            formInstance={formInstance}
-          />
-        </Col>
-      </Row>
-    );
-  return null;
+        )}
+      </Col>
+      <Col xs={24} sm={24} lg={15}>
+        <AllBanners
+          allBannersMethods={allBannersMethods}
+          bannerFormMethods={bannerFormMethods}
+          allBannersData={allBannersData}
+        />
+      </Col>
+      <Col xs={24} sm={24} lg={24}>
+        <SubmitMenu
+          isValidForm={isValidForm}
+          onSubmit={homeFormMethods.onSubmit}
+          onClearForm={homeFormMethods.onClearForm}
+          formInstance={formInstance}
+        />
+      </Col>
+    </Row>
+  );
 }
 // ------------------------------------------ REDUCER -----------------------------------------
 const typesR = {
@@ -75,9 +79,13 @@ const typesR = {
   RESET_FORM: 'RESET_FORM',
   UPDATE_FULL_FORM: 'UPDATE_FULL_FORM',
   PUSH_BANNER_ID: 'PUSH_BANNER_ID',
-  UPDATE_DO_MEGA_SUBMIT: 'UPDATE_DO_MEGA_SUBMIT',
+  UPDATE_IS_EDIT_BANNER_FLAG: 'UPDATE_IS_EDIT_BANNER_FLAG',
   UPDATE_FULL_BANNERS: 'UPDATE_FULL_BANNERS',
-  OTHER_FORM_VALID_UPDATE: 'OTHER_FORM_VALID_UPDATE'
+  OTHER_FORM_VALID_UPDATE: 'OTHER_FORM_VALID_UPDATE',
+  UPDATE_MSGSCHEMA_BANNER: 'UPDATE_MSGSCHEMA_BANNER',
+  UPDATE_FORM_BANNER: 'UPDATE_FORM_BANNER',
+  UPDATE_FULL_FORM_BANNER: 'UPDATE_FULL_FORM_BANNER',
+  RESET_FORM_BANNER: 'RESET_FORM_BANNER'
 };
 
 const {
@@ -87,19 +95,24 @@ const {
   RESET_FORM,
   UPDATE_FULL_FORM,
   PUSH_BANNER_ID,
-  UPDATE_DO_MEGA_SUBMIT,
+  UPDATE_IS_EDIT_BANNER_FLAG,
   UPDATE_FULL_BANNERS,
-  OTHER_FORM_VALID_UPDATE
+  UPDATE_MSGSCHEMA_BANNER,
+  UPDATE_FORM_BANNER,
+  UPDATE_FULL_FORM_BANNER,
+  RESET_FORM_BANNER
 } = typesR;
 
 const initialState = {
   msgSchema: messagesSchema,
-  form: {},
+  homeForm: {},
   isValidForm: true,
-  doUpdate: false,
-  bannersData: {
-    bannersArray: [],
-    doMegaSubmit: false
+  allBannersData: {
+    editBannerForm: {},
+    msgSchema: messagesSchemaBanner,
+    isValidForm: true,
+    isEditingBanner: false,
+    bannersArray: []
   }
 };
 
@@ -109,14 +122,28 @@ function reducer(state, action) {
     case RESET_VALIDATIONS:
       return {
         ...state,
-        isValidForm: true,
-        msgSchema: messagesSchema
+        msgSchema: messagesSchema,
+        homeForm: {},
+        isValidForm: true
       };
 
     case RESET_FORM:
       return {
         ...state,
-        ...initialState
+        msgSchema: messagesSchema,
+        isValidForm: true,
+        homeForm: { _id: state.homeForm._id }
+      };
+
+    case RESET_FORM_BANNER:
+      return {
+        ...state,
+        allBannersData: {
+          ...state.allBannersData,
+          editBannerForm: {},
+          isValidForm: true,
+          msgSchema: messagesSchemaBanner
+        }
       };
 
     case UPDATE_MSGSCHEMA:
@@ -126,48 +153,79 @@ function reducer(state, action) {
         msgSchema: payload.messagesSchema
       };
 
+    case UPDATE_MSGSCHEMA_BANNER:
+      return {
+        ...state,
+        allBannersData: {
+          ...state.allBannersData,
+          isValidForm: payload.isValid,
+          msgSchema: payload.messagesSchema
+        }
+      };
+
     case UPDATE_FORM:
-      return { ...state, form: { ...state.form, ...payload } };
+      return { ...state, homeForm: { ...state.homeForm, ...payload } };
+
+    case UPDATE_FORM_BANNER:
+      return {
+        ...state,
+        allBannersData: {
+          ...state.allBannersData,
+          editBannerForm: { ...state.allBannersData.editBannerForm, ...payload }
+        }
+      };
 
     case UPDATE_FULL_FORM:
       return {
         ...state,
-        form: payload,
+        homeForm: payload,
         isValidForm: true,
-        msgSchema: messagesSchema
+        msgSchema: messagesSchema,
+        allBannersData: {
+          ...state.allBannersData,
+          isValidForm: true,
+          msgSchema: messagesSchemaBanner
+        }
+      };
+
+    case UPDATE_FULL_FORM_BANNER:
+      return {
+        ...state,
+        isValidForm: true,
+        msgSchema: messagesSchema,
+        allBannersData: {
+          ...state.allBannersData,
+          editBannerForm: payload,
+          isValidForm: true,
+          msgSchema: messagesSchemaBanner
+        }
       };
 
     case PUSH_BANNER_ID:
       return {
         ...state,
-        bannersData: {
-          ...state.bannersData,
-          bannersArray: [...state.bannersData.bannersArray, payload]
+        allBannersData: {
+          ...state.allBannersData,
+          bannersArray: [...state.allBannersData.bannersArray, payload]
         }
       };
 
     case UPDATE_FULL_BANNERS:
       return {
         ...state,
-        bannersData: {
-          ...state.bannersData,
+        allBannersData: {
+          ...state.allBannersData,
           bannersArray: payload
         }
       };
 
-    case UPDATE_DO_MEGA_SUBMIT:
+    case UPDATE_IS_EDIT_BANNER_FLAG:
       return {
         ...state,
-        bannersData: {
-          ...state.bannersData,
-          doMegaSubmit: payload
+        allBannersData: {
+          ...state.allBannersData,
+          isEditingBanner: payload
         }
-      };
-
-    case OTHER_FORM_VALID_UPDATE:
-      return {
-        ...state,
-        isValidForm: payload
       };
 
     default:
@@ -189,7 +247,10 @@ function ClientHomeAdmin() {
   // ---------------------- Compilacion de Metodos
   const bannerFormMethods = {
     onDeleteBanner: someID => onDeleteBanner(someID),
-    onMegaSubmit: data => onMegaSubmit(data)
+    bannerFormEditMode: data => bannerFormEditMode(data),
+    onChangeForm: obj => onChangeForm(obj, 'banner'),
+    onSaveBanner: formData => onSaveBanner(formData),
+    onClearForm: () => onClearForm('banner')
   };
 
   const homeFormMethods = {
@@ -203,27 +264,26 @@ function ClientHomeAdmin() {
   };
 
   // ----------------------- Metodos Principales
-  function onChangeForm(obj) {
+  function bannerFormEditMode(bannerID) {
+    dispatch({ type: UPDATE_IS_EDIT_BANNER_FLAG, payload: bannerID });
+  }
+  function onChangeForm(obj, formType) {
     //   console.log('onChangeForm: ', obj);
     dispatch({ type: RESET_VALIDATIONS });
     dispatch({
-      type: UPDATE_FORM,
+      type: formType === 'banner' ? UPDATE_FORM_BANNER : UPDATE_FORM,
       payload: obj
     });
   }
-  function onMegaSubmit(data) {
-    console.log('Success: onMegaSubmit ', data);
-    onEditBanner(data);
-  }
   function onDeleteBanner(someID) {
-    const { bannersArray } = state.bannersData;
+    const { bannersArray } = state.allBannersData;
     const bannerIndex = searchObjectByProp(bannersArray, 'bannerID', someID);
     const newBanners = arrayWithoutIndex(bannersArray, bannerIndex);
     dispatch({ type: UPDATE_FULL_BANNERS, payload: newBanners });
   }
   function onEditBanner(someBanner) {
     const { bannerID } = someBanner;
-    const { bannersArray } = state.bannersData;
+    const { bannersArray } = state.allBannersData;
     const bannerIndex = searchObjectByProp(bannersArray, 'bannerID', bannerID);
     const newBanners = arrayElementSustitution(
       bannersArray,
@@ -233,27 +293,44 @@ function ClientHomeAdmin() {
     dispatch({ type: UPDATE_FULL_BANNERS, payload: newBanners });
   }
   function onSubmit(formData) {
-    dispatch({ type: UPDATE_DO_MEGA_SUBMIT, payload: true });
     const { isValid } = validateForm(formData);
     if (isValid) {
       console.log('onSubmit: Success\n', formData);
     } else {
       console.log('onSubmit: Error\n', formData);
     }
-    dispatch({ type: UPDATE_DO_MEGA_SUBMIT, payload: false });
   }
-  function onClearForm() {
-    dispatch({ type: RESET_FORM });
+  function onSaveBanner(newBannerData) {
+    const { isValid } = validateBannerForm(newBannerData.banner);
+    if (isValid) {
+      console.log('onSaveBanner: Success\n', newBannerData);
+      onEditBanner(newBannerData);
+      bannerFormEditMode(false);
+    } else {
+      console.log('onSaveBanner: Error\n', newBannerData);
+    }
+  }
+  function onClearForm(formType) {
+    const dispatchType = formType === 'banner' ? RESET_FORM_BANNER : RESET_FORM;
+    console.log('onClearForm: ', dispatchType);
+    dispatch({ type: dispatchType });
     setReRender(true);
   }
   function createNewBanner() {
-    const { length } = state.bannersData.bannersArray;
+    const { length } = state.allBannersData.bannersArray;
     const bannerID = `${length}${genRandomString(4)}`;
+    const banner = {
+      imgDesk: 'https://www.shbfinancialservices.com/images/nodatafound.png',
+      imgMovil: 'https://i.imgur.com/FPC6uwX.png',
+      visible: true
+    };
     dispatch({ type: RESET_VALIDATIONS });
     dispatch({
       type: PUSH_BANNER_ID,
-      payload: { bannerID, doUpdate: false }
+      payload: { bannerID, banner }
     });
+    setReRender(true);
+    bannerFormEditMode(bannerID);
     setReRender(true);
   }
   function getHomeData() {
@@ -261,7 +338,6 @@ function ClientHomeAdmin() {
   }
   // ----------------------- Metodos Auxiliares
   function onSuccessGetHome(data) {
-    console.log('onSuccessGetHome: ', data);
     fitDataToForm(data);
     isLoading(false);
     setReRender(true);
@@ -278,15 +354,38 @@ function ClientHomeAdmin() {
     });
     return validation;
   }
+  function validateBannerForm(formData) {
+    const validation = joiFormValidateBanner(formData);
+    dispatch({
+      type: UPDATE_MSGSCHEMA_BANNER,
+      payload: validation
+    });
+    return validation;
+  }
   function fitDataToForm(data) {
     buildBannerData(data);
+    buildProductsData(data);
     buildOtherFormData(data);
+  }
+  function buildProductsData(data) {
+    const { products } = data;
+    let productsObj = {};
+    products.forEach((product, index) => {
+      productsObj = {
+        ...productsObj,
+        [`porductID${index}`]: product.porductID
+      };
+    });
+    dispatch({
+      type: UPDATE_FORM,
+      payload: productsObj
+    });
   }
   function buildBannerData(data) {
     const { banners } = data;
     const newBannerArray = banners.map((banner, index) => {
       const bannerID = `${index}${genRandomString(4)}`;
-      return { banner, bannerID, doUpdate: false };
+      return { banner, bannerID };
     });
     dispatch({
       type: UPDATE_FULL_BANNERS,
@@ -312,12 +411,12 @@ function ClientHomeAdmin() {
         <AllForms
           reRender={reRender}
           homeFormMethods={homeFormMethods}
-          defaultValues={state.form}
+          defaultValues={state.homeForm}
           validation={state.msgSchema}
           isValidForm={state.isValidForm}
           allBannersMethods={allBannersMethods}
           formInstance={formInstance}
-          bannersData={state.bannersData}
+          allBannersData={state.allBannersData}
           bannerFormMethods={bannerFormMethods}
         />
       </div>
