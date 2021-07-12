@@ -1,14 +1,23 @@
 // ---Dependencys
 import React from 'react';
-import { Form, Row, Col, Input, Select, InputNumber, Radio } from 'antd';
-import { SendOutlined } from '@ant-design/icons';
+import {
+  Form,
+  Row,
+  Col,
+  Input,
+  Select,
+  InputNumber,
+  Radio,
+  DatePicker
+} from 'antd';
+import { SendOutlined, EditOutlined } from '@ant-design/icons';
 // ---Util Comps
 import ButtonMlg from 'Utils/ButtonMlg';
 import mapOptions from 'Utils/mapOptions';
 import FitImg from 'Utils/FitImg';
 // ---Others
 import { priceFormat } from 'Others/otherMethods';
-import { dateMongoToClient } from 'Others/dateMethods';
+import { dateMongoToClient, dateMongoToMoment } from 'Others/dateMethods';
 import { catalogos, appData } from 'Others/store-data.json';
 
 // --- AUX COMPONENTS
@@ -66,6 +75,22 @@ function JoiSelectInput(props) {
       rules={[{ required: false, message: validation[name].message }]}
     >
       <Select>{mapOptions(options)}</Select>
+    </Form.Item>
+  );
+}
+function JoiDatePicker(props) {
+  const { label, name, validation } = props;
+  return (
+    <Form.Item
+      label={label}
+      name={name}
+      validateStatus={validation[name].status}
+      help={
+        validation[name].status === 'error' ? validation[name].message : null
+      }
+      rules={[{ required: false, message: validation[name].message }]}
+    >
+      <DatePicker format="YYYY/MMM/DD" />
     </Form.Item>
   );
 }
@@ -207,6 +232,33 @@ function ClientForm(props) {
     </>
   );
 }
+function DateSection(props) {
+  const { date, onAllowDateEdit, editDate, validation } = props;
+  if (!editDate)
+    return (
+      <Row>
+        <Col xs={24} sm={24} lg={20}>
+          <JustData label="Fecha" name={dateMongoToClient(date)} />
+        </Col>
+        <Col xs={24} sm={24} lg={4}>
+          <ButtonMlg
+            variant="blue"
+            size="small"
+            onClick={() => onAllowDateEdit(!editDate)}
+            htmlType="button"
+            widthB="90%"
+            label=""
+            icon={<EditOutlined />}
+          />
+        </Col>
+      </Row>
+    );
+  return (
+    <>
+      <JoiDatePicker label="Fecha" name="date" validation={validation} />
+    </>
+  );
+}
 // --------------------------------------- FORM COMPONENT --------------------------------------
 function OrderForm(props) {
   const {
@@ -214,14 +266,21 @@ function OrderForm(props) {
     onChangeForm,
     onSubmit,
     validation,
-    isValidForm
+    isValidForm,
+    editDate,
+    onAllowDateEdit
   } = props;
   const { items, _id, date, totalCosto, totalVenta } = defaultValues;
+  const fixedDefaultValues = fixDate();
+
+  function fixDate() {
+    return { ...defaultValues, date: dateMongoToMoment(date) };
+  }
 
   return (
     <div className="store-cart-form-container">
       <Form
-        initialValues={defaultValues}
+        initialValues={fixedDefaultValues}
         onValuesChange={onChangeForm}
         onFinish={onSubmit}
       >
@@ -234,7 +293,12 @@ function OrderForm(props) {
           <Col xs={24} sm={24} lg={15}>
             <Row gutter={[20, 10]}>
               <Col xs={24} sm={24} lg={12}>
-                <JustData label="Fecha" name={dateMongoToClient(date)} />
+                <DateSection
+                  onAllowDateEdit={onAllowDateEdit}
+                  editDate={editDate}
+                  date={date}
+                  validation={validation}
+                />
               </Col>
               <Col xs={24} sm={24} lg={12}>
                 <JustData

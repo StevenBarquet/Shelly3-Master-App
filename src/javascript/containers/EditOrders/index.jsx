@@ -15,21 +15,28 @@ import { getOneOrder, updateOrder } from 'Others/peticiones.js';
 // ---Others
 import { isId, ignoreArgs, removeEmptyAndNull } from 'Others/otherMethods';
 import { messagesSchema } from './EditOrdersSchema';
-
+import { dateFormToServerFull } from 'Others/dateMethods';
 // ---AUX COMPONENTS
 
 // ------------------------------------------ REDUCER -----------------------------------------
 const typesR = {
   RESET_VALIDATIONS: 'RESET_VALIDATIONS',
   UPDATE_FORM: 'UPDATE_FORM',
+  UPDATE_DATE_FLAG: 'UPDATE_DATE_FLAG',
   START_RELOAD: 'START_RELOAD'
 };
 
-const { START_RELOAD, RESET_VALIDATIONS, UPDATE_FORM } = typesR;
+const {
+  START_RELOAD,
+  RESET_VALIDATIONS,
+  UPDATE_FORM,
+  UPDATE_DATE_FLAG
+} = typesR;
 
 const initialState = {
   msgSchema: messagesSchema,
   form: {},
+  editDate: false,
   isValidForm: true
 };
 
@@ -47,6 +54,12 @@ function reducer(state, action) {
       return {
         ...state,
         form: { ...state.form, ...payload }
+      };
+
+    case UPDATE_DATE_FLAG:
+      return {
+        ...state,
+        editDate: payload
       };
 
     case typesR.START_RELOAD:
@@ -87,12 +100,19 @@ function EditOrders() {
     const fixedData = formatDataForRequest(state.form);
     asyncHandler(updateOrder, onSuccessGen, onError, fixedData);
   }
+  function onAllowDateEdit(flag) {
+    dispatch({
+      type: UPDATE_DATE_FLAG,
+      payload: flag
+    });
+  }
   function onChangeForm(formData) {
-    // console.log('onChangeForm: ', formData);
+    const fixDate = fixDateProp(formData);
     dispatch({ type: RESET_VALIDATIONS });
+    onAllowDateEdit(false);
     dispatch({
       type: UPDATE_FORM,
-      payload: formData
+      payload: fixDate
     });
   }
   function onError(err) {
@@ -100,6 +120,13 @@ function EditOrders() {
     isLoading(false);
   }
   // ----------------------- Metodos Auxiliares
+  function fixDateProp(formData) {
+    const propertyKey = Object.keys(formData)[0];
+    if (propertyKey !== 'date') {
+      return formData;
+    }
+    return { date: dateFormToServerFull(formData.date) };
+  }
   function getID(value) {
     if (value && value === '') {
       // Si la url no contiene id resetea el form
@@ -158,6 +185,8 @@ function EditOrders() {
           validation={state.msgSchema}
           isValidForm={state.isValidForm}
           onSubmit={updateOrderData}
+          editDate={state.editDate}
+          onAllowDateEdit={onAllowDateEdit}
         />
       )}
     </StoreMenuCont>

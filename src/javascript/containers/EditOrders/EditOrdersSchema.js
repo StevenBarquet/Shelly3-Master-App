@@ -44,6 +44,10 @@ export const messagesSchema = {
   cantidad: {
     status: 'success',
     message: invalidMessages.isNumber + ' diferente a 0'
+  },
+  date: {
+    status: 'success',
+    message: invalidMessages.isRequired
   }
 };
 
@@ -65,7 +69,8 @@ export function joiFormValidate(formData) {
     correo: Joi.string().allow(''),
     nombre: Joi.string().allow(''),
     apellido: Joi.string().allow(''),
-    telefono: Joi.number().integer()
+    telefono: Joi.number().integer(),
+    date: Joi.string().allow('')
   });
   return validateSchema(schema, formData, messagesSchema);
 }
