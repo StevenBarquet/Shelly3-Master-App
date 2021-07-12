@@ -1,6 +1,5 @@
     Pendiente:
 -Permitir ordenar filtrar por fecha, productos
--Permitir editar fecha en ordenes
 -Apartado de analiticas de dinero en inventario
 -Crear dummy data para cuando no cargan los servicios (home, productos, etc)
 -El rastreo de orden contiene el link de pago e instrucciones para hacer el pago, el admin puede generar ordenes.
@@ -60,6 +59,7 @@
 -Agregar opcion: ingresar gasto, en utilidad
 
     Smurfeado:
+-Permitir editar fecha en ordenes
 -Boton limpiar filtros
 -Agregar boton de limpiar carrito
 -Modo caja
