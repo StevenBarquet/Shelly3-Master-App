@@ -12,7 +12,7 @@ import SubmitMenu from 'Comp/ClientHomeAdmin/SubmitMenu';
 import StoreMenuCont from 'Cont/StoreMenuCont';
 // --Request
 import { asyncHandler, testError } from 'Others/requestHandlers.js';
-import { getHomeReq } from 'Others/peticiones.js';
+import { getHomeReq, editHomeReq } from 'Others/peticiones.js';
 // ---Others
 import { joiFormValidate, messagesSchema } from './ClientHomeAdminSchema';
 import {
@@ -22,6 +22,7 @@ import {
 import {
   genRandomString,
   ignoreArgs,
+  removeEmptyAndNull,
   searchObjectByProp,
   arrayWithoutIndex,
   arrayElementSustitution
@@ -45,10 +46,8 @@ function AllForms(props) {
       <Col xs={24} sm={24} lg={8}>
         {!reRender && (
           <HomeForm
-            onChangeForm={homeFormMethods.onChangeForm}
             defaultValues={defaultValues}
             validation={validation}
-            isValidForm={isValidForm}
             formInstance={formInstance}
           />
         )}
@@ -66,6 +65,7 @@ function AllForms(props) {
           onSubmit={homeFormMethods.onSubmit}
           onClearForm={homeFormMethods.onClearForm}
           formInstance={formInstance}
+          onChangeForm={homeFormMethods.onChangeForm}
         />
       </Col>
     </Row>
@@ -123,7 +123,6 @@ function reducer(state, action) {
       return {
         ...state,
         msgSchema: messagesSchema,
-        homeForm: {},
         isValidForm: true
       };
 
@@ -268,7 +267,8 @@ function ClientHomeAdmin() {
     dispatch({ type: UPDATE_IS_EDIT_BANNER_FLAG, payload: bannerID });
   }
   function onChangeForm(obj, formType) {
-    //   console.log('onChangeForm: ', obj);
+    console.log('formType: ', formType);
+    console.log('onChangeForm: ', obj);
     dispatch({ type: RESET_VALIDATIONS });
     dispatch({
       type: formType === 'banner' ? UPDATE_FORM_BANNER : UPDATE_FORM,
@@ -295,7 +295,9 @@ function ClientHomeAdmin() {
   function onSubmit(formData) {
     const { isValid } = validateForm(formData);
     if (isValid) {
-      console.log('onSubmit: Success\n', formData);
+      isLoading(true);
+      const fixedData = fitDataToRequest();
+      asyncHandler(editHomeReq, onSuccessSubmit, onError, fixedData);
     } else {
       console.log('onSubmit: Error\n', formData);
     }
@@ -337,6 +339,9 @@ function ClientHomeAdmin() {
     asyncHandler(getHomeReq, onSuccessGetHome, onError);
   }
   // ----------------------- Metodos Auxiliares
+  function onSuccessSubmit() {
+    isLoading(false);
+  }
   function onSuccessGetHome(data) {
     fitDataToForm(data);
     isLoading(false);
@@ -400,6 +405,39 @@ function ClientHomeAdmin() {
       payload: newFormData
     });
     setReRender(true);
+  }
+  function fitDataToRequest() {
+    let toFixData = fixProducts(state.homeForm);
+    toFixData = fixBanners(toFixData, state.allBannersData);
+    const ignore = [...toFixData.ignore, 'sortIndex'];
+    let newData = ignoreArgs(toFixData.newData, ignore);
+    newData = removeEmptyAndNull(newData);
+    return newData;
+  }
+  function fixProducts(data) {
+    const keys = Object.keys(data);
+    let newData = {};
+    let ignore = [];
+    let products = [];
+    keys.forEach(key => {
+      const subKey = key.substr(0, 'porductID'.length);
+      if (subKey === 'porductID') {
+        ignore = [...ignore, key];
+        const sortIndex = parseInt(key.substr(9, key.length), 10);
+        const product = { porductID: data[key], sortIndex };
+        products = [...products, product];
+      } else {
+        newData = { ...newData, [key]: data[key] };
+      }
+    });
+    newData = { ...newData, products };
+    return { newData, ignore };
+  }
+  function fixBanners(data, allBannersData) {
+    const banners = allBannersData.bannersArray.map(
+      bannerData => bannerData.banner
+    );
+    return { ...data, newData: { ...data.newData, banners } };
   }
   // ----------------------- Render
   return (

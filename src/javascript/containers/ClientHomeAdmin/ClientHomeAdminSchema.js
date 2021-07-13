@@ -62,6 +62,10 @@ const someMessages = {
   notice: {
     status: 'success',
     message: invalidMessages.strLengthRange + ' 3 y 100 caracteres'
+  },
+  location: {
+    status: 'success',
+    message: invalidMessages.strLengthRange + ' 3 y 100 caracteres'
   }
 };
 
@@ -92,6 +96,10 @@ export function joiFormValidate(formData) {
       .min(3)
       .required(),
     notice: Joi.string()
+      .min(3)
+      .max(100)
+      .allow(''),
+    location: Joi.string()
       .min(3)
       .max(100)
       .allow('')

@@ -1,6 +1,10 @@
 // ---Dependencys
 import React from 'react';
 import { Form, Row, Col, Input } from 'antd';
+import { EditOutlined } from '@ant-design/icons';
+// ---Util Comps
+import ButtonMlg from 'Utils/ButtonMlg';
+
 // --- AUX COMPONENTS
 function JoiTextInput(props) {
   const { label, name, validation, disabled } = props;
@@ -99,24 +103,50 @@ function InfoTextInputs(props) {
         <Col xs={24} sm={24} lg={24}>
           <JoiTextInput label="Noticia" name="notice" validation={validation} />
         </Col>
+        <Col xs={24} sm={24} lg={24}>
+          <JoiTextInput
+            label="Ubicación"
+            name="location"
+            validation={validation}
+          />
+        </Col>
       </Row>
+    </Col>
+  );
+}
+function SubmitMenu(props) {
+  const { isValidForm } = props;
+  return (
+    <Col xs={24} sm={24} lg={24}>
+      {!isValidForm && (
+        <div className="submit-container">
+          <h4>Algunos campos no son válidos, revisa tus datos</h4>
+        </div>
+      )}
+      <div className="submit-container">
+        <Row style={{ width: '100%' }}>
+          <Col className="center-block" xs={24} sm={24} lg={24}>
+            <ButtonMlg
+              variant="yellow"
+              size="small"
+              htmlType="submit"
+              widthB="90%"
+              label="Modificar Home"
+              icon={<EditOutlined />}
+            />
+          </Col>
+        </Row>
+      </div>
     </Col>
   );
 }
 // --------------------------------------- FORM COMPONENT --------------------------------------
 function HomeForm(props) {
-  const {
-    defaultValues,
-    onChangeForm,
-    onSubmit,
-    validation,
-    formInstance
-  } = props;
+  const { defaultValues, onSubmit, validation, formInstance } = props;
   return (
     <>
       <Form
         initialValues={defaultValues}
-        onValuesChange={onChangeForm}
         onFinish={onSubmit}
         form={formInstance}
       >
