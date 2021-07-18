@@ -101,6 +101,9 @@
       },
       "EditUsersPage": {
         "title": "Editar mi perfil"
+      },
+      "InventoryAnaliticsPage": {
+        "title": "Analiticas: Inventario"
       }
     },
     "menuRoutes": [
@@ -199,6 +202,12 @@
         "routeName": "createUser",
         "routeLabel": "Crear/editar cuentas",
         "parentKey": "usersMenu"
+      },
+      {
+        "route": "/master/inventoryAnalitics",
+        "routeName": "inventoryAnalitics",
+        "routeLabel": "Analiticas de inventario",
+        "parentKey": "utilityMenu"
       }
     ]
   },

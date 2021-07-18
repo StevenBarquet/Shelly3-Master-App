@@ -56,6 +56,20 @@ export async function getOneProduct(id) {
     return error;
   }
 }
+export async function getAllInventoryReq() {
+  const endpoint = 'admin/productos/all/inventory';
+  const url = urlServer + endpoint;
+  try {
+    const respose = await axios(url, {
+      method: 'get',
+      withCredentials: true
+    });
+    return respose;
+  } catch (error) {
+    return error;
+  }
+}
+
 export async function updateProductRequest(data) {
   const endpoint = 'admin/productos/editar';
   const url = urlServer + endpoint;

@@ -13,6 +13,7 @@ import MasterLogout from 'Pages/MasterLogoutPage';
 import StoreCart from 'Pages/StoreCartPage';
 import AdminOrders from 'Pages/AdminOrdersPage';
 import EditOrders from 'Pages/EditOrdersPage';
+import InventoryAnalitics from 'Pages/InventoryAnaliticsPage';
 import UtilityDay from 'Pages/UtilityDayPage';
 import UtilityWeek from 'Pages/UtilityWeekPage';
 import UtilityMonth from 'Pages/UtilityMonthPage';
@@ -33,6 +34,11 @@ function AppContainer() {
       <NavbarCont />
       <Switch>
         {/* Utility */}
+        <Route
+          exact
+          path="/master/inventoryAnalitics"
+          component={InventoryAnalitics}
+        />
         <Route exact path="/master/utilidadDia" component={UtilityDay} />
         <Route exact path="/master/utilidadSemana" component={UtilityWeek} />
         <Route exact path="/master/utilidadMes" component={UtilityMonth} />
