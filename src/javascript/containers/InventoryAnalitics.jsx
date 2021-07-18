@@ -86,7 +86,7 @@ function InventoryAnalitics() {
       totalCosto += product.costo;
       totalPrecioLocal += product.precioPlaza;
       totalPrecioOnline += product.precioOnline;
-      totalPurchases += product.countPurchases;
+      totalPurchases += product.countPurchases || 0;
     });
     return { totalCosto, totalPrecioLocal, totalPrecioOnline, totalPurchases };
   }
