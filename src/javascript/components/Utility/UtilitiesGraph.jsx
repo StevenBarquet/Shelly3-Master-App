@@ -54,36 +54,35 @@ function UtilitiesGraph(props) {
     }
 
     // Create series
-    let series;
-    if (variant && variant === 'line') {
-      series = chart.series.push(new am4charts.LineSeries());
-      series.dataFields.valueY = 'utility';
-      series.dataFields.categoryX = 'date';
-    } else if (variant && variant === 'bullet') {
-      series = chart.series.push(new am4charts.LineSeries());
-      series.strokeWidth = 0;
-      series.dataFields.valueY = 'utility';
-      series.dataFields.categoryX = 'date';
-    } else {
-      series = chart.series.push(new am4charts.ColumnSeries());
-      series.dataFields.valueY = 'utility';
-      series.dataFields.categoryX = 'date';
-    }
+    const series1 = chart.series.push(new am4charts.ColumnSeries());
+    series1.dataFields.valueY = 'utility';
+    series1.dataFields.categoryX = 'date';
+    series1.name = 'Utilidad';
+    series1.tooltipText = '{name}: [bold]{valueY}';
+
+    const series2 = chart.series.push(new am4charts.ColumnSeries());
+    series2.dataFields.valueY = 'totalVenta';
+    series2.dataFields.categoryX = 'date';
+    series2.name = 'Venta';
+    series2.tooltipText = '{name}: [bold]{valueY}';
 
     // Add simple bullet
-    const bullet = series.bullets.push(new am4charts.Bullet());
+    const bullet = series1.bullets.push(new am4charts.Bullet());
     const square = bullet.createChild(am4core.Rectangle);
     square.width = 5;
     square.height = 5;
 
     // Cursor settings
-    series.tooltipText = '{valueY.value}';
     chart.cursor = new am4charts.XYCursor();
 
     // Scroll graph Feature
     const scrollbarX = new am4charts.XYChartScrollbar();
-    scrollbarX.series.push(series);
+    scrollbarX.series.push(series1);
     chart.scrollbarX = scrollbarX;
+
+    // Leyend
+    chart.legend = new am4charts.Legend();
+    chart.legend.useDefaultMarker = true;
   }
   // ----------------------- Metodos Auxiliares
   return (

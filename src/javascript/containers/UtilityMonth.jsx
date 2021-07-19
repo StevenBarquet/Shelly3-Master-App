@@ -45,10 +45,7 @@ const initialState = {
   orders: [],
   orderCount: 0,
   searchParams: {
-    filters: {
-      startDate: { _d: new Date() },
-      finalDate: { _d: new Date() }
-    },
+    filters: {},
     sortBy: '{ "date": -1 }'
   }
 };
@@ -223,11 +220,16 @@ function UtilityMonth() {
       '30',
       '31'
     ];
-    const newItems = sortOrder.map(element => ({ date: element, utility: 0 }));
+    const newItems = sortOrder.map(element => ({
+      date: element,
+      utility: 0,
+      totalVenta: 0
+    }));
     // Analizar cada orden y enviarla al index de newItems correspondiente
     items.forEach(item => {
       const index = getUtilityIndex(item, sortOrder, 'date');
       newItems[index].utility += item.utility;
+      newItems[index].totalVenta += item.totalVenta;
     });
     return newItems;
   }
@@ -252,7 +254,17 @@ function UtilityMonth() {
           <UtilitySumary orders={state.orders} />
         </Col>
         <Col xs={24} sm={24} lg={16}>
-          <DaySelector onDateChange={onDateChange} onSearch={onSearch} />
+          <DaySelector
+            onDateChange={onDateChange}
+            onSearch={onSearch}
+            disabled={
+              !(
+                state.searchParams &&
+                state.searchParams.filters &&
+                state.searchParams.filters.startDate
+              )
+            }
+          />
         </Col>
         {state.gData && state.gData.length ? (
           <>

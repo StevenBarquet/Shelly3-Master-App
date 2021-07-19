@@ -47,7 +47,7 @@ export function dateMongoToClientShort(someDate) {
 }
 
 export function dateMongoToMoment(someDate) {
-  const formatS = moment(someDate, 'YYYY-MM-DDTHH:mm:ss.SSSZ');
+  const formatS = moment(someDate, 'YYYY-MM-DDTHH:mm:ss.SSSZ').add(5, 'hours');
   return formatS;
 }
 

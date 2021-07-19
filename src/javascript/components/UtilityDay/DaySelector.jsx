@@ -8,7 +8,7 @@ import ButtonMlg from 'Utils/ButtonMlg';
 // import AuthValidate from 'Comp/AuthValidate';
 // ------------------------------------------ COMPONENT-----------------------------------------
 function DaySelector(props) {
-  const { onDateChange, onSearch } = props;
+  const { onDateChange, onSearch, disabled } = props;
   // ----------------------- Metodos Principales
   // ----------------------- Metodos Auxiliares
   return (
@@ -26,7 +26,7 @@ function DaySelector(props) {
         </Col>
         <Col xs={24} sm={24} lg={6}>
           <ButtonMlg
-            variant="yellow"
+            variant={disabled ? 'block' : 'yellow'}
             size="small"
             htmlType="button"
             onClick={onSearch}

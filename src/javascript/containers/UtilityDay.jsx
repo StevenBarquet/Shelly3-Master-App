@@ -18,6 +18,7 @@ import { dateFormToServer, dateMongoToHours } from 'Others/dateMethods';
 import { asyncHandler, testError } from 'Others/requestHandlers.js';
 import { searchUtility } from 'Others/peticiones.js';
 // ---AUX COMPONENTS
+// eslint-disable-next-line no-unused-vars
 const MockGraph = () => (
   <div className="container94">
     <img
@@ -49,10 +50,7 @@ const initialState = {
   orders: [],
   orderCount: 0,
   searchParams: {
-    filters: {
-      startDate: { _d: new Date() },
-      finalDate: { _d: new Date() }
-    },
+    filters: {},
     sortBy: '{ "date": -1 }'
   }
 };
@@ -190,7 +188,6 @@ function UtilityCont() {
       }));
     }
 
-    console.log('dataToGraphHours: ', newOrders);
     return newOrders;
   }
   return (
@@ -203,7 +200,17 @@ function UtilityCont() {
           <UtilitySumary orders={state.orders} />
         </Col>
         <Col xs={24} sm={24} lg={16}>
-          <DaySelector onDateChange={onDateChange} onSearch={onSearch} />
+          <DaySelector
+            onDateChange={onDateChange}
+            disabled={
+              !(
+                state.searchParams &&
+                state.searchParams.filters &&
+                state.searchParams.filters.startDate
+              )
+            }
+            onSearch={onSearch}
+          />
         </Col>
         {state.gData && state.gData.length ? (
           <>
