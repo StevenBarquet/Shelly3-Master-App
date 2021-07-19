@@ -1,17 +1,15 @@
 import moment from 'moment';
 
 export function dateMongoToClient(someDate) {
-  return (
-    moment(someDate, 'YYYY-MM-DDTHH:mm:ss.SSSZ')
-      .add(5, 'hours')
-      .locale('es')
-      .format('MMMM DD YYYY, hh:mm a')
-  );
+  return moment(someDate, 'YYYY-MM-DDTHH:mm:ss.SSSZ')
+    .add(5, 'hours')
+    .locale('es')
+    .format('MMMM DD YYYY, hh:mm a');
 }
 
 export function dateMongoToHours(someDate) {
   const formatS = moment(someDate, 'YYYY-MM-DDTHH:mm:ss.SSSZ')
-    // .add(5, 'hours')
+    .add(5, 'hours')
     .locale('es')
     .format('hh:mm A');
   return formatS;
@@ -19,7 +17,7 @@ export function dateMongoToHours(someDate) {
 
 export function dateMongoToDays(someDate) {
   const formatS = moment(someDate, 'YYYY-MM-DDTHH:mm:ss.SSSZ')
-    // .add(5, 'hours')
+    .add(5, 'hours')
     .locale('es')
     .format('DD');
   return formatS;
@@ -27,7 +25,7 @@ export function dateMongoToDays(someDate) {
 
 export function dateMongoToWeekDays(someDate) {
   const formatS = moment(someDate, 'YYYY-MM-DDTHH:mm:ss.SSSZ')
-    // .add(5, 'hours')
+    .add(5, 'hours')
     .locale('es')
     .format('dddd');
   return formatS;
@@ -35,19 +33,17 @@ export function dateMongoToWeekDays(someDate) {
 
 export function dateMongoToMonths(someDate) {
   const formatS = moment(someDate, 'YYYY-MM-DDTHH:mm:ss.SSSZ')
-    // .add(5, 'hours')
+    .add(5, 'hours')
     .locale('es')
     .format('MMMM');
   return formatS;
 }
 
 export function dateMongoToClientShort(someDate) {
-  return (
-    moment(someDate, 'YYYY-MM-DDTHH:mm:ss.SSSZ')
-      // .add(5, 'hours')
-      .locale('es')
-      .format('MMMM DD YYYY')
-  );
+  return moment(someDate, 'YYYY-MM-DDTHH:mm:ss.SSSZ')
+    .add(5, 'hours')
+    .locale('es')
+    .format('MMMM DD YYYY');
 }
 
 export function dateMongoToMoment(someDate) {
