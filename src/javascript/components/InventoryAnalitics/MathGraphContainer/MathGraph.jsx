@@ -18,12 +18,7 @@ if (process.browser) {
 
 // ------------------------------------------ COMPONENT-----------------------------------------
 function MathGraph(props) {
-  const {
-    totalCosto,
-    totalPrecioLocal,
-    totalPrecioOnline,
-    inventoryData
-  } = props;
+  const { totalCosto, totalPrecioLocal, totalPrecioOnline, zeroScale } = props;
   const gData = [
     {
       label: 'Analisis económico',
@@ -59,10 +54,9 @@ function MathGraph(props) {
     }
 
     const valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
-    valueAxis.min = 0;
-    // if (variant && variant === 'vertical') {
-    //   valueAxis.renderer.opposite = true
-    // }
+    if (zeroScale) {
+      valueAxis.min = 0;
+    }
     if (config.nameY) {
       valueAxis.title.text = config.nameY;
     }
@@ -99,16 +93,14 @@ function MathGraph(props) {
     chart.legend.useDefaultMarker = true;
   }
   // ----------------------- Metodos Auxiliares
-  if (inventoryData && inventoryData.length)
-    return (
-      <div className="container94">
-        <div
-          style={{ width: '100%', height: '360px', background: 'white' }}
-          id="someID"
-        />
-      </div>
-    );
-  return null;
+  return (
+    <div className="container94">
+      <div
+        style={{ width: '100%', height: '360px', background: 'white' }}
+        id="someID"
+      />
+    </div>
+  );
 }
 
 export default MathGraph;

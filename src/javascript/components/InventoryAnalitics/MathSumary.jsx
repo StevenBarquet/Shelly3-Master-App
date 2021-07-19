@@ -11,7 +11,8 @@ function MathSumary(props) {
     totalPrecioLocal,
     totalPrecioOnline,
     inventoryData,
-    totalPurchases
+    totalPurchases,
+    totalProducts
   } = props;
   // ----------------------- Metodos Principales
   // ----------------------- Metodos Auxiliares
@@ -21,7 +22,12 @@ function MathSumary(props) {
         <Row>
           <Col xs={24} sm={24} lg={24}>
             <h4>
-              Productos en inventario: <span>{inventoryData.length}</span>
+              Productos registrados: <span>{inventoryData.length}</span>
+            </h4>
+          </Col>
+          <Col xs={24} sm={24} lg={24}>
+            <h4>
+              Productos en inventario: <span>{totalProducts}</span>
             </h4>
           </Col>
           <Col xs={24} sm={24} lg={24}>
@@ -31,21 +37,20 @@ function MathSumary(props) {
           </Col>
           <Col xs={24} sm={24} lg={24}>
             <h4>
-              Dinero invertido en inventario:{' '}
-              <span>{priceFormat(totalCosto)}</span>
+              Invertido en inventario: <span>{priceFormat(totalCosto)}</span>
             </h4>
           </Col>
         </Row>
         <Row>
           <Col xs={24} sm={24} lg={24}>
             <h4>
-              Dinero de venta potencial (local):{' '}
+              Venta potencial (local):{' '}
               <span>{priceFormat(totalPrecioLocal)}</span>
             </h4>
           </Col>
           <Col xs={24} sm={24} lg={24}>
             <h4>
-              Dinero de venta potencial(online) :{' '}
+              Venta potencial (online) :{' '}
               <span>{priceFormat(totalPrecioOnline)}</span>
             </h4>
           </Col>

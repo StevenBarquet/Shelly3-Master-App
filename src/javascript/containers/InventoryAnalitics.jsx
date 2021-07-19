@@ -7,7 +7,7 @@ import { updateLoading } from 'Actions/appInfo';
 // ---Components
 import InventoryMenu from 'Comp/InventoryAnalitics/InventoryMenu';
 import MathSumary from 'Comp/InventoryAnalitics/MathSumary';
-import MathGraph from 'Comp/InventoryAnalitics/MathGraph';
+import MathGraphContainer from 'Comp/InventoryAnalitics/MathGraphContainer';
 // ---Containers
 import StoreMenuCont from 'Cont/StoreMenuCont';
 // --Request
@@ -47,7 +47,8 @@ function reducer(state, action) {
         totalCosto: payload.totalCosto,
         totalPrecioLocal: payload.totalPrecioLocal,
         totalPrecioOnline: payload.totalPrecioOnline,
-        totalPurchases: payload.totalPurchases
+        totalPurchases: payload.totalPurchases,
+        totalProducts: payload.totalProducts
       };
 
     default:
@@ -78,17 +79,25 @@ function InventoryAnalitics() {
     isLoading(false);
   }
   function buildMathData(inventoryData) {
+    let totalProducts = 0;
     let totalCosto = 0;
     let totalPrecioLocal = 0;
     let totalPrecioOnline = 0;
     let totalPurchases = 0;
     inventoryData.forEach(product => {
-      totalCosto += product.costo;
-      totalPrecioLocal += product.precioPlaza;
-      totalPrecioOnline += product.precioOnline;
+      totalProducts += product.disponibles;
+      totalCosto += product.costo * product.disponibles;
+      totalPrecioLocal += product.precioPlaza * product.disponibles;
+      totalPrecioOnline += product.precioOnline * product.disponibles;
       totalPurchases += product.countPurchases || 0;
     });
-    return { totalCosto, totalPrecioLocal, totalPrecioOnline, totalPurchases };
+    return {
+      totalCosto,
+      totalPrecioLocal,
+      totalPrecioOnline,
+      totalPurchases,
+      totalProducts
+    };
   }
   // ----------------------- Render
   return (
@@ -108,10 +117,11 @@ function InventoryAnalitics() {
               totalPrecioLocal={state.totalPrecioLocal}
               totalPrecioOnline={state.totalPrecioOnline}
               totalPurchases={state.totalPurchases}
+              totalProducts={state.totalProducts}
             />
           </Col>
           <Col xs={24} sm={24} lg={16}>
-            <MathGraph
+            <MathGraphContainer
               inventoryData={state.inventoryData}
               totalCosto={state.totalCosto}
               totalPrecioLocal={state.totalPrecioLocal}
