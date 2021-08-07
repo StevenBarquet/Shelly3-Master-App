@@ -307,6 +307,33 @@ function GralPublicRoutes(props) {
     </Col>
   );
 }
+function AnaliticsRoutes(props) {
+  const { validation } = props;
+  return (
+    <Col xs={12} sm={12} lg={6}>
+      <Row gutter={[20, 0]}>
+        <Col xs={24} sm={24} lg={24}>
+          <h3>
+            <span>Analiticas:</span>
+          </h3>
+        </Col>
+        {menuRoutes.map(routeData => {
+          if (routeData.parentKey === 'analyticsMenu')
+            return (
+              <Col key={routeData.routeName} xs={24} sm={24} lg={24}>
+                <JoiSwitchInput
+                  label={routeData.routeLabel}
+                  name={routeData.routeName}
+                  validation={validation}
+                />
+              </Col>
+            );
+          return null;
+        })}
+      </Row>
+    </Col>
+  );
+}
 function AuthFeaturesButtons(props) {
   const { changeFormAuthAll } = props;
   return (
@@ -405,6 +432,7 @@ function UsersForm(props) {
           <OrdersRoutes validation={validation} />
           <UserRoutes validation={validation} />
           <GralPublicRoutes validation={validation} />
+          <AnaliticsRoutes validation={validation} />
           {/* Finish Form */}
           <SubmitMenu
             onClearForm={onClearForm}

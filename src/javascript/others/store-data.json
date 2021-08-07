@@ -207,7 +207,7 @@
         "route": "/master/inventoryAnalitics",
         "routeName": "inventoryAnalitics",
         "routeLabel": "Analiticas de inventario",
-        "parentKey": "utilityMenu"
+        "parentKey": "analyticsMenu"
       }
     ]
   },

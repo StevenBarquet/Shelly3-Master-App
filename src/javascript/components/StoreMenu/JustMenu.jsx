@@ -65,12 +65,6 @@ function JustMenu(props) {
             title="Utilidades"
           >
             <Menu.Item
-              key="/master/inventoryAnalitics"
-              onClick={() => goToRoute('/master/inventoryAnalitics')}
-            >
-              Analiticas de inventario
-            </Menu.Item>
-            <Menu.Item
               key="/master/utilidadDia"
               onClick={() => goToRoute('/master/utilidadDia')}
             >
@@ -194,13 +188,18 @@ function JustMenu(props) {
               Crear/Editar cuentas
             </Menu.Item>
           </SubMenu>
-          <Menu.Item
+          <SubMenu
             icon={<BarChartOutlined />}
-            key="/master/Analytics"
-            onClick={() => goToRoute('/master/Analytics')}
+            key="analyticsMenu"
+            title="Analyticas"
           >
-            Analyticas
-          </Menu.Item>
+            <Menu.Item
+              key="/master/inventoryAnalitics"
+              onClick={() => goToRoute('/master/inventoryAnalitics')}
+            >
+              Analiticas de inventario
+            </Menu.Item>
+          </SubMenu>
         </Menu>
       </div>
     );
