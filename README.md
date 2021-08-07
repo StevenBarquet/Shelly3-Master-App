@@ -8,4 +8,4 @@ Development issues: None, all fixed and working for production
 Upgrades: the production server open the browser, fixed some warnings, new script "npm run prod" builds all the dist diles and run de producrion server, eslint adjusted.
 
 Other issues:
--Redux structure fixed
+-Redux structure fixed.
