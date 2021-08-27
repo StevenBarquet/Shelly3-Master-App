@@ -70,7 +70,7 @@ function JustButtons(props) {
           <div
             className={currentPath === '/' ? 'nav-btn nav-border' : 'nav-btn'}
           >
-            Inicio3
+            Inicio4
           </div>
         </Link>
       </Col>
