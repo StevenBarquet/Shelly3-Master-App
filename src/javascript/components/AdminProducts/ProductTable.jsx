@@ -132,7 +132,7 @@ const ProductTable = props => {
         pagination={false}
         dataSource={dataSource}
         columns={columns}
-        scroll={{ x: 1800 }}
+        scroll={{ x: 1800, y: 500 }}
       />
       <Pagination
         style={{ margin: '15px auto 0px auto' }}
