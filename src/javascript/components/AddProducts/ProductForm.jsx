@@ -141,7 +141,7 @@ function ProductForm(props) {
           </Col>
           <Col xs={24} sm={24} lg={8}>
             <Form.Item
-              label="Nuevo"
+              label="Articulo nuevo"
               name="nuevo"
               validateStatus={nuevo.status}
               help={nuevo.status === 'error' ? nuevo.message : null}

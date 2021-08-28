@@ -44,7 +44,7 @@ const initialState = {
   msgSchema: messagesSchema,
   form: {
     nuevo: true,
-    online: false,
+    online: true,
     descuento: 0
   },
   isValidForm: true
