@@ -23,7 +23,7 @@ import {
 } from 'Others/otherMethods';
 // --Request
 import { asyncHandler } from 'Others/requestHandlers.js';
-import { createLocalOrder } from 'Others/peticiones.js';
+import { createLocalOrder, getAllUsers } from 'Others/peticiones.js';
 import { joiFormValidate, messagesSchema } from './OrderDataFormJoi';
 
 // --- AUX COMPONENTS
@@ -47,7 +47,8 @@ const typesR = {
   UPDATE_MATHS: 'UPDATE_MATHS',
   UPDATE_TOTAL: 'UPDATE_TOTAL',
   RESET_ALL: 'RESET_ALL',
-  CHANGE_RESPONSABLE: 'CHANGE_RESPONSABLE'
+  CHANGE_RESPONSABLE: 'CHANGE_RESPONSABLE',
+  UPDATE_USERS: 'UPDATE_USERS'
 };
 
 const {
@@ -59,7 +60,8 @@ const {
   UPDATE_MATHS,
   UPDATE_TOTAL,
   RESET_ALL,
-  CHANGE_RESPONSABLE
+  CHANGE_RESPONSABLE,
+  UPDATE_USERS
 } = typesR;
 
 const initialState = {
@@ -72,7 +74,8 @@ const initialState = {
   },
   step: 0,
   msgSchema: messagesSchema,
-  isValidForm: true
+  isValidForm: true,
+  users: []
 };
 
 function reducer(state, action) {
@@ -155,6 +158,11 @@ function reducer(state, action) {
         msgSchema: messagesSchema,
         isValidForm: true
       };
+    case UPDATE_USERS:
+      return {
+        ...state,
+        users: payload
+      };
 
     default:
       return state;
@@ -171,8 +179,13 @@ function StoreCart() {
 
   useEffect(() => updateMaths(), [state.orderData.items]);
   useEffect(() => updateTotal(), [state.subTotal, state.orderData.cantidad]);
+  useEffect(() => getUsers(), []);
 
   // ----------------------- Metodos Principales
+  function getUsers() {
+    isLoading(true);
+    asyncHandler(getAllUsers, onSuccessData, onErrorOrder);
+  }
   function addToCart(productData) {
     const item = { ...productData, piezas: 1, precio: productData.precioPlaza };
     const { _id } = item;
@@ -252,6 +265,14 @@ function StoreCart() {
     ModalConfirmation(question, details, deleteAllCart);
   }
   // ----------------------- Metodos Auxiliares
+  function onSuccessData(data) {
+    const { users } = data;
+    isLoading(false);
+    dispatch({
+      type: UPDATE_USERS,
+      payload: users
+    });
+  }
   function formatDataForRequest(data) {
     const { concepto, cantidad, items } = data;
     const cobroAdicional = cantidad ? { concepto, cantidad } : null;
@@ -378,6 +399,7 @@ function StoreCart() {
           onDeleteButton={onDeleteButton}
           onClearCart={onClearCart}
           handleResponsable={handleResponsable}
+          responsables={state.users}
           responsableVenta={state.orderData.responsableVenta}
         />
       ) : (

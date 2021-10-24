@@ -53,6 +53,7 @@ function CartContainer(props) {
     onDeleteButton,
     onClearCart,
     handleResponsable,
+    responsables,
     responsableVenta
   } = props;
   return (
@@ -63,6 +64,7 @@ function CartContainer(props) {
             handleResponsable={handleResponsable}
             responsableVenta={responsableVenta}
             addToCart={addToCart}
+            responsables={responsables}
           />
         </Col>
         <ClearButton length={items.length} onClearCart={onClearCart} />

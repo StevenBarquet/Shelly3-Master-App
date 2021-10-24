@@ -18,7 +18,6 @@ import ProductSearcher from 'Comp/AdminProducts/ProductSearcher';
 // ---Util Comps
 import mapOptions from 'Utils/mapOptions';
 // ---Others
-import { appData } from 'Others/store-data.json';
 import { removeNullProperties } from 'Others/otherMethods';
 // --Request
 import { asyncHandler, testError } from 'Others/requestHandlers.js';
@@ -76,7 +75,12 @@ function ResponsableSelect(props) {
 }
 // ------------------------------------------ COMPONENT-----------------------------------------
 function SearchCont(props) {
-  const { addToCart, handleResponsable, responsableVenta } = props;
+  const {
+    addToCart,
+    handleResponsable,
+    responsableVenta,
+    responsables
+  } = props;
   const initialState = {
     showCard: false,
     productData: {}
@@ -144,6 +148,16 @@ function SearchCont(props) {
     });
   }
   // ----------------------- Metodos Auxiliares
+  function fitResponsables() {
+    const usersExist = responsables.length > 0 && responsables[0].fullName;
+    if (usersExist) {
+      return responsables.map(element => ({
+        label: element.fullName,
+        value: element.fullName
+      }));
+    }
+    return [];
+  }
   function onSuccessSearch(data) {
     isLoading(false);
     setFirstRender(false);
@@ -174,7 +188,7 @@ function SearchCont(props) {
     <Row>
       <Col xs={24} sm={24} lg={6}>
         <ResponsableSelect
-          options={appData.responsables}
+          options={fitResponsables()}
           handleResponsable={handleResponsable}
           responsableVenta={responsableVenta}
         />
